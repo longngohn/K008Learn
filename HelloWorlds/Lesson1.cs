@@ -56,9 +56,9 @@ namespace HelloWorlds
             Console.WriteLine("-----------------------");
             int[] numbers = { 1, 2, 3, 4, 5 };
 
-            foreach (var number in numbers)
+            foreach (int num in numbers)
             {
-                Console.WriteLine("Giá trị của number là: {0}", number);
+                Console.WriteLine("Giá trị của number là: {0}", num);
             }
 
             Console.WriteLine("-----------------------");
@@ -100,6 +100,25 @@ namespace HelloWorlds
                 Console.WriteLine("Số {0} là số 0", number);
 
             }
+
+            //Vòng lặp while, do while
+
+            Console.WriteLine("-----------------------");
+            int count = 5;
+            while (count < 10)
+            {
+                Console.WriteLine("Giá trị trong count while là: {0}", count);
+                count++;
+            }
+
+            Console.WriteLine("-----------------------");
+            count = 5;
+
+            do
+            {
+                Console.WriteLine("Giá trị trong count do-while là: {0}", count);
+
+            } while (count < 3);
             //Kết thúc code
             watch.Stop();
             Console.WriteLine("Thời gian chạy code: " + watch.Elapsed);
