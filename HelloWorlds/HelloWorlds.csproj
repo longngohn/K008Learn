@@ -59,9 +59,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="HinhHoc.cs" />
     <Compile Include="Lesson1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SwitchCase.cs" />
+    <Compile Include="ToanTu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
