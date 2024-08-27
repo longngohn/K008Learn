@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "K008Learn", "K008Learn\K008
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorlds", "HelloWorlds\HelloWorlds.csproj", "{06F57B5A-6C5E-4099-8E4B-322AD7708208}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeanMagagement", "LeanMagagement\LeanMagagement.csproj", "{B6EEF54A-ACAD-4B93-B405-2DA08633CC3D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{06F57B5A-6C5E-4099-8E4B-322AD7708208}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06F57B5A-6C5E-4099-8E4B-322AD7708208}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06F57B5A-6C5E-4099-8E4B-322AD7708208}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6EEF54A-ACAD-4B93-B405-2DA08633CC3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6EEF54A-ACAD-4B93-B405-2DA08633CC3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6EEF54A-ACAD-4B93-B405-2DA08633CC3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6EEF54A-ACAD-4B93-B405-2DA08633CC3D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
