@@ -106,5 +106,8 @@
   <ItemGroup>
     <Resource Include="Resources\xicon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\eyepass.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
