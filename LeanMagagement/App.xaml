@@ -2,8 +2,10 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:LeanMagagement"
-             StartupUri="MainWindow.xaml">
-    <Application.Resources>
-         
+             StartupUri="DashBoard.xaml">
+    <Application.Resources >
+        <ResourceDictionary Source="ResourcesDictionaryUtils.xaml">
+           
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
