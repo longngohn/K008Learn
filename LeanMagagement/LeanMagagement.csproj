@@ -66,6 +66,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="vMain.xaml.cs">
+      <DependentUpon>vMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="vTaskAdd.xaml.cs">
+      <DependentUpon>vTaskAdd.xaml</DependentUpon>
+    </Compile>
     <Page Include="DashBoard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -86,6 +92,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ResourcesDictionaryUtils.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vTaskAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -134,6 +148,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Backgrounds-Digital-Free-HD.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\background-white.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\avatar4.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.5.1.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.5.1.0\build\MaterialDesignThemes.targets')" />
