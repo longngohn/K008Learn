@@ -6,33 +6,36 @@
         xmlns:md ="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:LeanMagagement"
         mc:Ignorable="d"
-        Title="vTaskAdd" Height="450" Width="450">
+        Title="vTaskAdd" Height="500" Width="450">
     <Grid Background="WhiteSmoke">
         <Grid.RowDefinitions>
             <RowDefinition Height="40"></RowDefinition>
             <RowDefinition Height="3*"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <Label FontSize="15" HorizontalAlignment="Center" FontWeight="Bold" Content="NHẬP THÔNG TIN GIAO VIỆC"></Label>
+        <Label FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Content="NHẬP THÔNG TIN GIAO VIỆC"></Label>
 
-        <Grid   Grid.Row="1">
+        <Grid Margin="5,0"   Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
+            
 
             </Grid.RowDefinitions>
-            <Grid    Grid.Row="0">
+            <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="150"></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
 
                 </Grid.ColumnDefinitions>
                 <Label FontSize="15" VerticalAlignment ="Center" Content="Tên công việc:"></Label>
-                <TextBox Grid.Column="1" Style="{StaticResource MaterialDesignOutlinedTextBox }"/>
+                <TextBox Grid.Column="1" Style="{StaticResource MaterialDesignOutlinedTextBox }"
+                         FontSize="16"
+                         Margin="0,5"
+                          />
 
             </Grid>
             <Grid  Grid.Row="1"  >
@@ -42,7 +45,8 @@
 
                 </Grid.ColumnDefinitions>
                 <Label FontSize="15" VerticalAlignment ="Center" Content="Trạng thái:"></Label>
-                <TextBox  Grid.Column="1" Style="{StaticResource MaterialDesignOutlinedTextBox }"/>
+                <TextBox  Grid.Column="1" Style="{StaticResource MaterialDesignOutlinedTextBox }"
+                          Margin="0,5"/>
             </Grid>
             <Grid  Grid.Row="2"  >
                 <Grid.ColumnDefinitions>
@@ -50,7 +54,7 @@
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Label FontSize="15" VerticalAlignment ="Center" Content="Người thực hiện:"></Label>
-                <ComboBox  Grid.Column="1" Style="{StaticResource MaterialDesignOutlinedComboBox}"/>
+                <ComboBox Margin="0,5"  Grid.Column="1" Style="{StaticResource MaterialDesignOutlinedComboBox}"/>
             </Grid>
             <Grid  Grid.Row="3"  >
                 <Grid.ColumnDefinitions>
@@ -58,7 +62,7 @@
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Label FontSize="15" VerticalAlignment ="Center" Content="Thời gian:"></Label>
-                <DatePicker Style="{StaticResource MaterialDesignOutlinedDatePicker}" Grid.Column="1"></DatePicker>
+                <DatePicker Margin="0,5" Style="{StaticResource MaterialDesignOutlinedDatePicker}" Grid.Column="1"></DatePicker>
             </Grid>
             <Grid  Grid.Row="4"  >
                 <Grid.ColumnDefinitions>
@@ -66,7 +70,7 @@
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Label FontSize="15" VerticalAlignment ="Center" Content="Doanh thu:"></Label>
-                <TextBox  Grid.Column="1" Style="{StaticResource MaterialDesignOutlinedTextBox }"/>
+                <TextBox Margin="0,5" Grid.Column="1" Style="{StaticResource MaterialDesignOutlinedTextBox }"/>
             </Grid >
         </Grid>
         <Button Grid.Row="2" Height="60" Margin="40,0,40,0" FontSize="20" Content="Thêm công việc"></Button>
