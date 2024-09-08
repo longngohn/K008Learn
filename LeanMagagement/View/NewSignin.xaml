@@ -1,30 +1,62 @@
 ﻿<Window
+    x:Class="LeanMagagement.DashBoard"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ViewModel="clr-namespace:LeanMagagement.ViewModel"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:LeanMagagement"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
-    xmlns:ViewModel="clr-namespace:LeanMagagement.ViewModel" x:Name="window"
-    x:Class="LeanMagagement.DashBoard"
+    x:Name="window"
     Title="DashBoard"
-    Width="793"
-    Height="817"
+    Width="800"
+    Height="800"
     AllowsTransparency="True"
     Background="Transparent"
+    ResizeMode="CanResizeWithGrip"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
-    mc:Ignorable="d" ResizeMode="CanResizeWithGrip">
+    mc:Ignorable="d">
     <Window.DataContext>
-        <ViewModel:GiaoViec/>
+        <ViewModel:GiaoViec />
     </Window.DataContext>
-    
+
     <Grid Width="800" Height="600">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
 
+        <Button
+            Grid.Column="1"
+            Width="30"
+            Height="30"
+            Margin="10"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            Panel.ZIndex="1000">
+            <Button.Template>
+                <ControlTemplate>
+                    <md:PackIcon
+                        Width="30"
+                        Height="30"
+                        Kind="CloseBox">
+                        <md:PackIcon.Style>
+                            <Style TargetType="md:PackIcon">
+                                <Setter Property="Foreground" Value="Red" />
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Foreground" Value="Black" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </md:PackIcon.Style>
+                    </md:PackIcon>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        
+        
         <Border CornerRadius="30,0,0,30">
             <Border.Background>
                 <ImageBrush ImageSource="/Resources/Backgrounds-Digital-Free-HD.jpg" Stretch="UniformToFill" />
@@ -77,17 +109,27 @@
                 BorderThickness="10"
                 CornerRadius="50">
                 <Border.Background>
-                    <ImageBrush ImageSource="/Resources/facebookicon.png" />
+                    <ImageBrush ImageSource="/Resources/avatarSingin.jpg" Stretch="UniformToFill" />
                 </Border.Background>
             </Border>
             <TextBox
+                x:Name="Email1"
                 Width="250"
                 md:HintAssist.Hint="Email"
-                Style="{StaticResource MaterialDesignOutlinedTextBox}" 
-                Text="{Binding TenCongViec}" 
-                >
-                
-            </TextBox>
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Text="{Binding TenCongViec, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+
+            <TextBox
+                x:Name="Email2"
+                Width="250"
+                Margin="0,10,0,0"
+                md:HintAssist.Hint="Email"
+                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Text="{Binding Width, ElementName=window, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                />
+
+            <!--  Text="{Binding ElementName=Email1, Path=Text, Mode=OneWay}"  -->
+
 
 
             <PasswordBox
