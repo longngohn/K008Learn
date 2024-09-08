@@ -66,17 +66,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="vMain.xaml.cs">
+    <Compile Include="ViewModel\GiaoViec.cs" />
+    <Compile Include="View\vMain.xaml.cs">
       <DependentUpon>vMain.xaml</DependentUpon>
     </Compile>
-    <Compile Include="vTaskAdd.xaml.cs">
+    <Compile Include="View\vTaskAdd.xaml.cs">
       <DependentUpon>vTaskAdd.xaml</DependentUpon>
     </Compile>
-    <Page Include="DashBoard.xaml">
+    <Page Include="View\NewSignin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="View\OldSignIn.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -84,22 +85,22 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DashBoard.xaml.cs">
-      <DependentUpon>DashBoard.xaml</DependentUpon>
+    <Compile Include="View\NewSignin.xaml.cs">
+      <DependentUpon>NewSignin.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="View\OldSignIn.xaml.cs">
+      <DependentUpon>OldSignIn.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ResourcesDictionaryUtils.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="vMain.xaml">
+    <Page Include="View\vMain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="vTaskAdd.xaml">
+    <Page Include="View\vTaskAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

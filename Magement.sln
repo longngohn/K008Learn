@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "K008Learn", "K008Learn\K008Learn.csproj", "{0924FB10-A6EB-4506-8C74-04D79C16EF89}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorlds", "HelloWorlds\HelloWorlds.csproj", "{06F57B5A-6C5E-4099-8E4B-322AD7708208}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeanMagagement", "LeanMagagement\LeanMagagement.csproj", "{B6EEF54A-ACAD-4B93-B405-2DA08633CC3D}"
@@ -15,10 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0924FB10-A6EB-4506-8C74-04D79C16EF89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0924FB10-A6EB-4506-8C74-04D79C16EF89}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0924FB10-A6EB-4506-8C74-04D79C16EF89}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0924FB10-A6EB-4506-8C74-04D79C16EF89}.Release|Any CPU.Build.0 = Release|Any CPU
 		{06F57B5A-6C5E-4099-8E4B-322AD7708208}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{06F57B5A-6C5E-4099-8E4B-322AD7708208}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06F57B5A-6C5E-4099-8E4B-322AD7708208}.Release|Any CPU.ActiveCfg = Release|Any CPU
