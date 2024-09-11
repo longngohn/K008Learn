@@ -6,7 +6,13 @@
         xmlns:md ="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:LeanMagagement"
         mc:Ignorable="d"
-        Title="vTaskAdd" Height="500" Width="450">
+        Background="Transparent"
+        xmlns:vm="clr-namespace:LeanMagagement.ViewModel"
+        x:Name="HostWin"
+        Title="" Height="450" Width="450">
+    <Window.DataContext>
+        <vm:vmTaoGiaoViec/>
+    </Window.DataContext>
     <Grid Background="WhiteSmoke">
         <Grid.RowDefinitions>
             <RowDefinition Height="40"></RowDefinition>
@@ -21,7 +27,7 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
+             
             
 
             </Grid.RowDefinitions>
@@ -33,6 +39,7 @@
                 </Grid.ColumnDefinitions>
                 <Label FontSize="15" VerticalAlignment ="Center" Content="Tên công việc:"></Label>
                 <TextBox Grid.Column="1" Style="{StaticResource MaterialDesignOutlinedTextBox }"
+                         Text="{Binding Task.TenCongViec, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                          FontSize="16"
                          Margin="0,5"
                           />
@@ -44,8 +51,9 @@
                     <ColumnDefinition></ColumnDefinition>
 
                 </Grid.ColumnDefinitions>
-                <Label FontSize="15" VerticalAlignment ="Center" Content="Trạng thái:"></Label>
-                <TextBox  Grid.Column="1" Style="{StaticResource MaterialDesignOutlinedTextBox }"
+                <Label FontSize="15" VerticalAlignment ="Center" Content="Mô tả công việc:"></Label>
+                <TextBox Text="{Binding Task.MoTa, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                    Grid.Column="1" Style="{StaticResource MaterialDesignOutlinedTextBox }"
                           Margin="0,5"/>
             </Grid>
             <Grid  Grid.Row="2"  >
@@ -53,26 +61,23 @@
                     <ColumnDefinition Width="150"></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Label FontSize="15" VerticalAlignment ="Center" Content="Người thực hiện:"></Label>
-                <ComboBox Margin="0,5"  Grid.Column="1" Style="{StaticResource MaterialDesignOutlinedComboBox}"/>
+                <Label FontSize="15" VerticalAlignment ="Center" Content="Người giao việc:"></Label>
+                <TextBox Text="{Binding Task.NguoiGiao, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  
+                    Grid.Column="1" Style="{StaticResource MaterialDesignOutlinedTextBox }" Margin="0,5"/>
             </Grid>
             <Grid  Grid.Row="3"  >
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="150"></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Label FontSize="15" VerticalAlignment ="Center" Content="Thời gian:"></Label>
-                <DatePicker Margin="0,5" Style="{StaticResource MaterialDesignOutlinedDatePicker}" Grid.Column="1"></DatePicker>
+                <Label FontSize="15" VerticalAlignment ="Center" Content="Người nhận việc:"/>
+                <TextBox Text="{Binding Task.NguoiNhan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                    Grid.Column="1" Style="{StaticResource MaterialDesignOutlinedTextBox }" Margin="0,5"/>
             </Grid>
-            <Grid  Grid.Row="4"  >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="150"></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Label FontSize="15" VerticalAlignment ="Center" Content="Doanh thu:"></Label>
-                <TextBox Margin="0,5" Grid.Column="1" Style="{StaticResource MaterialDesignOutlinedTextBox }"/>
-            </Grid >
         </Grid>
-        <Button Grid.Row="2" Height="60" Margin="40,0,40,0" FontSize="20" Content="Thêm công việc"></Button>
+        <Button Grid.Row="2" Height="60" Margin="40,0,40,0" FontSize="20" 
+                Content="OK"
+                Command="{Binding Cmd_ThemCV}"
+                CommandParameter="{x:Reference HostWin}"/>
     </Grid>
 </Window>
