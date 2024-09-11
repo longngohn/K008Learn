@@ -73,39 +73,24 @@
     <Compile Include="ViewModel\DangNhap.cs" />
     <Compile Include="ViewModel\vmGiaoViec.cs" />
     <Compile Include="ViewModel\vmTaoGiaoViec.cs" />
-    <Compile Include="View\vMain.xaml.cs">
-      <DependentUpon>vMain.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\vTask.xaml.cs">
       <DependentUpon>vTask.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\vTaskAdd.xaml.cs">
       <DependentUpon>vTaskAdd.xaml</DependentUpon>
     </Compile>
-    <Page Include="View\NewSignin.xaml">
+    <Page Include="View\vSignin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\OldSignIn.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View\NewSignin.xaml.cs">
-      <DependentUpon>NewSignin.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\OldSignIn.xaml.cs">
-      <DependentUpon>OldSignIn.xaml</DependentUpon>
-      <SubType>Code</SubType>
+    <Compile Include="View\vSignin.xaml.cs">
+      <DependentUpon>vSignin.xaml</DependentUpon>
     </Compile>
     <Page Include="ResourcesDictionaryUtils.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\vMain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
