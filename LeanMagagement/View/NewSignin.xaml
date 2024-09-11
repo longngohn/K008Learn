@@ -18,7 +18,7 @@
     WindowStyle="None"
     mc:Ignorable="d">
     <Window.DataContext>
-        <ViewModel:GiaoViec />
+        <ViewModel:DangNhap />
     </Window.DataContext>
 
     <Grid Width="800" Height="600">
@@ -95,7 +95,6 @@
             <Border.Background>
                 <ImageBrush ImageSource="/Resources/background-white.jpg" Stretch="UniformToFill" />
             </Border.Background>
-
         </Border>
 
         <StackPanel
@@ -103,41 +102,40 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Center">
             <Border
-                Width="100"
-                Height="100"
+                Width="200"
+                Height="200"
                 Margin="20"
                 BorderThickness="10"
-                CornerRadius="50">
+                CornerRadius="100">
                 <Border.Background>
-                    <ImageBrush ImageSource="/Resources/avatarSingin.jpg" Stretch="UniformToFill" />
+                    <ImageBrush ImageSource="/Resources/ThomAvatar.png" Stretch="UniformToFill" />
                 </Border.Background>
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Setter Property="Background" Value="Red">
+                            
+                        </Setter>
+                    </Style>
+                </Border.Style>
             </Border>
             <TextBox
                 x:Name="Email1"
                 Width="250"
                 md:HintAssist.Hint="Email"
                 Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                Text="{Binding TenCongViec, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-
-            <TextBox
-                x:Name="Email2"
-                Width="250"
-                Margin="0,10,0,0"
-                md:HintAssist.Hint="Email"
-                Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                Text="{Binding Width, ElementName=window, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                />
+                Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
             <!--  Text="{Binding ElementName=Email1, Path=Text, Mode=OneWay}"  -->
-
-
 
             <PasswordBox
                 Width="250"
                 Margin="0,10"
                 VerticalAlignment="Top"
                 md:HintAssist.Hint="Password"
-                Style="{StaticResource MaterialDesignOutlinedRevealPasswordBox}" />
+                
+                Style="{StaticResource MaterialDesignOutlinedRevealPasswordBox}" >
+                
+            </PasswordBox>
             <Button
                 Height="40"
                 Margin="10"

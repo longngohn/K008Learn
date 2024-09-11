@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace LeanMagagement.ViewModel
 {
-    public class GiaoViec
+    public class DangNhap
     {
-        public string TenCongViec { get; set; } = "Hợp đồng GIP";
+        public string Email { get; set; } = "thommt0209@reskilaw.com";
+        public string PassWord { get; set; }
     }
 }
