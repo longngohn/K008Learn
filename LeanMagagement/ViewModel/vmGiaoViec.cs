@@ -73,5 +73,25 @@ namespace LeanMagagement.ViewModel
         {
             MessageBox.Show("Bạn đã click chuột phải!");
         }
+
+        private ActionCommand cmd_TaoCSDL;
+
+        public ICommand Cmd_TaoCSDL
+        {
+            get
+            {
+                if (cmd_TaoCSDL == null)
+                {
+                    cmd_TaoCSDL = new ActionCommand(PerformCmd_TaoCSDL);
+                }
+
+                return cmd_TaoCSDL;
+            }
+        }
+
+        private void PerformCmd_TaoCSDL()
+        {
+
+        }
     }
 }
