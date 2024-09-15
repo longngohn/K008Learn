@@ -85,10 +85,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="CLasses\clTask.cs" />
+    <Compile Include="Libs\DataBaseConnection.cs" />
     <Compile Include="Libs\ObservableRangeCollection.cs" />
     <Compile Include="Libs\PropertyChangedBase.cs" />
-    <Compile Include="ViewModel\DangNhap.cs" />
-    <Compile Include="ViewModel\vmDataConnection.cs" />
     <Compile Include="ViewModel\vmGiaoViec.cs" />
     <Compile Include="ViewModel\vmTaoGiaoViec.cs" />
     <Compile Include="View\vTask.xaml.cs">
@@ -96,9 +95,6 @@
     </Compile>
     <Compile Include="View\vTaskAdd.xaml.cs">
       <DependentUpon>vTaskAdd.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\vTestConnection.xaml.cs">
-      <DependentUpon>vTestConnection.xaml</DependentUpon>
     </Compile>
     <Page Include="View\vSignin.xaml">
       <SubType>Designer</SubType>
@@ -120,10 +116,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\vTaskAdd.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\vTestConnection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

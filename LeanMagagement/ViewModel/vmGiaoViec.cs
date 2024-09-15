@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using LeanMagagement.Libs;
+using System.Data.SQLite;
 
 namespace LeanMagagement.ViewModel
 {
@@ -91,7 +92,17 @@ namespace LeanMagagement.ViewModel
 
         private void PerformCmd_TaoCSDL()
         {
+            SQLiteConnection _con = new SQLiteConnection();
+            
+                string _strConnect = "Data Source=MyDatabase.sqlite;Version=3;";
+                _con.ConnectionString = _strConnect;
+                _con.Open();
 
+
+            
+            
+                _con.Close();
+            
         }
     }
 }
