@@ -17,9 +17,9 @@
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
     mc:Ignorable="d">
-    <Window.DataContext>
+    <!--<Window.DataContext>
         <ViewModel:DangNhap />
-    </Window.DataContext>
+    </Window.DataContext>-->
 
     <Grid Width="800" Height="600">
         <Grid.ColumnDefinitions>
