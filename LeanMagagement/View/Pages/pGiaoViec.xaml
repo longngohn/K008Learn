@@ -45,7 +45,14 @@
             <GridSplitter Grid.Column="1"/>
             <dxg:GridControl Grid.Column="0"/>
 
-            <dxc:ChartControl Grid.Column="2"/>
+            <dxc:ChartControl Grid.Column="2">
+                <dxc:ChartControl.Legends>
+                    <dxc:Legend/>
+                </dxc:ChartControl.Legends>
+                <dxc:XYDiagram2D>
+                    <dxc:BarSideBySideSeries2D DisplayName="Series 1"/>
+                </dxc:XYDiagram2D>
+            </dxc:ChartControl>
 
         </Grid>
 
