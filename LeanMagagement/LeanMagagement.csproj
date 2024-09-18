@@ -348,6 +348,13 @@
     <Compile Include="Libs\PropertyChangedBase.cs" />
     <Compile Include="ViewModel\vmGiaoViec.cs" />
     <Compile Include="ViewModel\vmTaoGiaoViec.cs" />
+    <Compile Include="ViewModel\vmGiaoViec2.cs" />
+    <Compile Include="View\Pages\pGiaoViec.xaml.cs">
+      <DependentUpon>pGiaoViec.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\pNguoiDung.xaml.cs">
+      <DependentUpon>pNguoiDung.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\vTask.xaml.cs">
       <DependentUpon>vTask.xaml</DependentUpon>
     </Compile>
@@ -357,6 +364,14 @@
     <Compile Include="View\vTaskAdd.xaml.cs">
       <DependentUpon>vTaskAdd.xaml</DependentUpon>
     </Compile>
+    <Page Include="View\Pages\pGiaoViec.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\pNguoiDung.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\vSignin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -399,6 +414,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Properties\Licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
