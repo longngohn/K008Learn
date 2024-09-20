@@ -99,8 +99,6 @@ namespace LeanMagagement.ViewModel
                 _con.Open();
 
 
-            
-            
                 _con.Close();
             
         }
