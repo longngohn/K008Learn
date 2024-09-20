@@ -370,6 +370,9 @@
     <Compile Include="View\Pages\pNguoiDung.xaml.cs">
       <DependentUpon>pNguoiDung.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\PopUp\pThongTinTaiKhoan.xaml.cs">
+      <DependentUpon>pThongTinTaiKhoan.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\vTask.xaml.cs">
       <DependentUpon>vTask.xaml</DependentUpon>
     </Compile>
@@ -384,6 +387,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\pNguoiDung.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\PopUp\pThongTinTaiKhoan.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

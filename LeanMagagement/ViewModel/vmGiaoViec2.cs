@@ -2,6 +2,7 @@
 using DevExpress.XtraSpreadsheet.Import.OpenXml;
 using LeanMagagement.Libs;
 using LeanMagagement.View.Pages;
+using LeanMagagement.View.Pages.PopUp;
 using Microsoft.Xaml.Behaviors.Core;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,30 @@ namespace LeanMagagement.ViewModel
             set
             {
                 _MainFrameContent = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private Page _PopUpFrameContent;
+        public Page PopUpFrameContent
+        {
+            get { return _PopUpFrameContent; }
+
+            set
+            {
+                _PopUpFrameContent = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _IsPopUp;
+        public bool IsPopUp
+        {
+            get { return _IsPopUp; }
+
+            set
+            {
+                _IsPopUp = value;
                 OnPropertyChanged();
             }
         }
@@ -55,8 +80,12 @@ namespace LeanMagagement.ViewModel
                     case "pNguoiDung":
                         MainFrameContent = new pNguoiDung();
                         break;
+                    case "pThongTinTaiKhoan":
+                        PopUpFrameContent = new pThongTinTaiKhoan();
+                        IsPopUp = true;
+                        break;
 
-                   default:
+                    default:
                         break;
                 }
             }
@@ -65,5 +94,27 @@ namespace LeanMagagement.ViewModel
 
             }
         }
+
+        private ActionCommand cmd_ClosePopUp;
+
+        public ICommand Cmd_ClosePopUp
+        {
+            get
+            {
+                if (cmd_ClosePopUp == null)
+                {
+                    cmd_ClosePopUp = new ActionCommand(PerformCmd_ClosePopUp);
+                }
+
+                return cmd_ClosePopUp;
+            }
+        }
+
+        private void PerformCmd_ClosePopUp()
+        {
+            PopUpFrameContent = null;
+            IsPopUp = false;
+        }
+
     }
 }
