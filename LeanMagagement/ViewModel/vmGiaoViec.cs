@@ -47,12 +47,12 @@ namespace LeanMagagement.ViewModel
         }
 
         private void PerformCmd_ThemCongViec()
-        {
-            var win = new vTaskAdd();
-            win.ShowDialog();
-            var task = (win.DataContext as vmTaoGiaoViec).Task;
-            task.NgayTao = DateTime.Now;
-            TaskList.Add(task);
+        { 
+        //    var win = new vTaskAdd();
+        //    win.ShowDialog();
+        //    var task = (win.DataContext as vmTaoGiaoViec).Task;
+        //    task.NgayTao = DateTime.Now;
+        //    TaskList.Add(task);
         }
 
         private ActionCommand cmd_KichChuotPhai;
