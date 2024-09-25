@@ -1,62 +1,59 @@
-﻿<Window
-    x:Class="LeanMagagement.vTaskAdd"
+﻿<Page
+    x:Class="LeanMagagement.View.Pages.PopUp.pAddTask"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="clr-namespace:LeanMagagement"
+    xmlns:local="clr-namespace:LeanMagagement.View.Pages.PopUp"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
-    xmlns:vm="clr-namespace:LeanMagagement.ViewModel"
-    x:Name="HostWin"
-    Title="vTaskAdd"
-    Width="350"
-    Height="auto"
-    Background="Transparent"
-    WindowStartupLocation="CenterScreen"
+    xmlns:vm="clr-namespace:LeanMagagement.ViewModel.Pages"
+    
+    Title="Thêm công việc"
+    d:DesignHeight="370"
+    d:DesignWidth="450"
+    Width="450" Height="Auto"
     mc:Ignorable="d">
-    <Window.DataContext>
-        <vm:vmTaoGiaoViec />
-    </Window.DataContext>
-    <Window.Resources>
-        <Style TargetType="TextBox">
-            <Setter Property="Margin" Value="20,5,20,5"></Setter>
-        </Style>
-    </Window.Resources>
-    <Grid Background="WhiteSmoke">
+
+    <Page.DataContext>
+        <vm:vmpAddTask/>
+    </Page.DataContext>
+
+    <Page.Resources>
+        <ResourceDictionary Source="/PageResources.xaml">
+           
+        </ResourceDictionary>
+    </Page.Resources>
+    <Grid>
         <StackPanel Orientation="Vertical">
-            <Label
+            <TextBlock
+                Margin="10"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
-                Content="NHẬP THÔNG TIN GIAO VIỆC"
+                Text="NHẬP THÔNG TIN GIAO VIỆC"
                 FontSize="15"
-                Margin="10"
                 FontWeight="Bold" />
             <TextBox
                 md:HintAssist.Hint="Tên công việc"
-                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Style="{StaticResource MarginedTextBox}"
                 Text="{Binding Task.TenCongViec, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <TextBox
-               
                 md:HintAssist.Hint="Mô tả"
-                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Style="{StaticResource MarginedTextBox}"
                 Text="{Binding Task.MoTa, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <TextBox
-                
                 md:HintAssist.Hint="Người giao việc"
-                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Style="{StaticResource MarginedTextBox}"
                 Text="{Binding Task.NguoiGiao, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <TextBox
-                
                 md:HintAssist.Hint="Người nhận việc"
-                Style="{StaticResource MaterialDesignOutlinedTextBox}"
+                Style="{StaticResource MarginedTextBox}"
                 Text="{Binding Task.NguoiNhan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
             <Button
+                Command ="{Binding Cmd_AddTask}"
                 Height="40"
                 Margin="30,10,30,20"
-                Command="{Binding Cmd_ThemCV}"
-                CommandParameter="{x:Reference HostWin}"
                 Content="OK"
                 FontSize="15" />
         </StackPanel>
     </Grid>
-</Window>
+</Page>

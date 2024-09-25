@@ -326,6 +326,9 @@
     <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.135\lib\net462\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -361,6 +364,8 @@
     <Compile Include="Libs\DataBaseConnection.cs" />
     <Compile Include="Libs\ObservableRangeCollection.cs" />
     <Compile Include="Libs\PropertyChangedBase.cs" />
+    <Compile Include="ViewModel\Pages\vmpAddTask.cs" />
+    <Compile Include="ViewModel\Pages\vmpGiaoViec.cs" />
     <Compile Include="ViewModel\vmGiaoViec.cs" />
     <Compile Include="ViewModel\vmTaoGiaoViec.cs" />
     <Compile Include="ViewModel\vmGiaoViec2.cs" />
@@ -370,20 +375,35 @@
     <Compile Include="View\Pages\pNguoiDung.xaml.cs">
       <DependentUpon>pNguoiDung.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Pages\PopUp\pAddTask.xaml.cs">
+      <DependentUpon>pAddTask.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\PopUp\pThongTinTaiKhoan.xaml.cs">
+      <DependentUpon>pThongTinTaiKhoan.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\vTask.xaml.cs">
       <DependentUpon>vTask.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\vTask2.xaml.cs">
       <DependentUpon>vTask2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\vTaskAdd.xaml.cs">
-      <DependentUpon>vTaskAdd.xaml</DependentUpon>
-    </Compile>
+    <Page Include="PageResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\Pages\pGiaoViec.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\pNguoiDung.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\PopUp\pAddTask.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\PopUp\pThongTinTaiKhoan.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -407,10 +427,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\vTask2.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\vTaskAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

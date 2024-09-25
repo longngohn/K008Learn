@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LeanMagagement
+namespace LeanMagagement.View.Pages.PopUp
 {
     /// <summary>
-    /// Interaction logic for vTaskAdd.xaml
+    /// Interaction logic for pThongTinTaiKhoan.xaml
     /// </summary>
-    public partial class vTaskAdd : Window
+    public partial class pThongTinTaiKhoan : Page
     {
-        public vTaskAdd()
+        public pThongTinTaiKhoan()
         {
             InitializeComponent();
         }
