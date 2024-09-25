@@ -366,7 +366,6 @@
     <Compile Include="Libs\PropertyChangedBase.cs" />
     <Compile Include="ViewModel\Pages\vmpAddTask.cs" />
     <Compile Include="ViewModel\Pages\vmpGiaoViec.cs" />
-    <Compile Include="ViewModel\vmGiaoViec.cs" />
     <Compile Include="ViewModel\vmTaoGiaoViec.cs" />
     <Compile Include="ViewModel\vmGiaoViec2.cs" />
     <Compile Include="View\Pages\pGiaoViec.xaml.cs">
@@ -380,9 +379,6 @@
     </Compile>
     <Compile Include="View\Pages\PopUp\pThongTinTaiKhoan.xaml.cs">
       <DependentUpon>pThongTinTaiKhoan.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\vTask.xaml.cs">
-      <DependentUpon>vTask.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\vTask2.xaml.cs">
       <DependentUpon>vTask2.xaml</DependentUpon>
@@ -419,10 +415,6 @@
       <DependentUpon>vSignin.xaml</DependentUpon>
     </Compile>
     <Page Include="ResourcesDictionaryUtils.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\vTask.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

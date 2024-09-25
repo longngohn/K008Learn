@@ -20,6 +20,11 @@
     <!--<Window.DataContext>
         <ViewModel:DangNhap />
     </Window.DataContext>-->
+    <Window.Resources>
+        <ResourceDictionary Source="/PageResources.xaml">
+
+        </ResourceDictionary>
+    </Window.Resources>
 
     <Grid Width="800" Height="600">
         <Grid.ColumnDefinitions>
