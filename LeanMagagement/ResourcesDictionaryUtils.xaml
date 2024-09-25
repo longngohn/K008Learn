@@ -31,5 +31,5 @@
 
     <SolidColorBrush x:Key="SColor_01" Color="{DynamicResource Color_01}" />
 
-    
+
 </ResourceDictionary>
