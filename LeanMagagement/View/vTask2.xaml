@@ -7,6 +7,7 @@
     xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
     xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
     xmlns:local="clr-namespace:LeanMagagement.View"
+    xmlns:p="clr-namespace:LeanMagagement.Properties"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:vm="clr-namespace:LeanMagagement.ViewModel"
@@ -65,6 +66,15 @@
                                         Height="16"
                                         Source="{dx:DXImage 'SvgImages/Icon Builder/Actions_User.svg'}" />
                                 </MenuItem.Icon>
+                            </MenuItem>
+                            <Separator />
+
+                            <MenuItem Header="Cài đặt">
+                                <MenuItem Header="{x:Static p:Resources.NgonNgu}">
+                                    <MenuItem Header="Tiếng Việt"/>
+                                    <MenuItem Header="English"/>
+                                    
+                                </MenuItem>
                             </MenuItem>
                             <Separator />
                             <MenuItem Header="Đăng xuất" />

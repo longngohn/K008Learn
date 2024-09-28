@@ -120,4 +120,10 @@
   <data name="TenNguoiDung" xml:space="preserve">
     <value>Tên người dùng</value>
   </data>
+  <data name="ChucVu" xml:space="preserve">
+    <value>Chức vụ</value>
+  </data>
+  <data name="NgonNgu" xml:space="preserve">
+    <value>Ngôn ngữ</value>
+  </data>
 </root>

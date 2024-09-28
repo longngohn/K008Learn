@@ -120,4 +120,10 @@
   <data name="TenNguoiDung" xml:space="preserve">
     <value>UserName</value>
   </data>
+  <data name="ChucVu" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="NgonNgu" xml:space="preserve">
+    <value>Language</value>
+  </data>
 </root>

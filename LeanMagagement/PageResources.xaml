@@ -2,7 +2,10 @@
 
     <Color x:Key="Color_00">#F26522</Color>
     <Color x:Key="Color_01">#006536</Color>
-    <Style x:Key ="MarginedTextBox" TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignOutlinedTextBox}">
+    <Style
+        x:Key="MarginedTextBox"
+        BasedOn="{StaticResource MaterialDesignOutlinedTextBox}"
+        TargetType="{x:Type TextBox}">
         <Setter Property="Margin" Value="20,5,20,5" />
     </Style>
 

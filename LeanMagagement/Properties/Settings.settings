@@ -5,5 +5,8 @@
     <Setting Name="SaveData" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="LangName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">vi-VN</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

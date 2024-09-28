@@ -22,6 +22,7 @@ namespace LeanMagagement
             ApplicationThemeHelper.ApplicationThemeName = Theme.Win11LightName;
             base.OnStartup(e);
             Thread.CurrentThread.CurrentCulture = culture;
+            Thread.CurrentThread.CurrentUICulture = culture;
         }
     }
 }

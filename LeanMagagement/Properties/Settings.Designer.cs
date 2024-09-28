@@ -34,5 +34,17 @@ namespace LeanMagagement.Properties {
                 this["SaveData"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("vi-VN")]
+        public string LangName {
+            get {
+                return ((string)(this["LangName"]));
+            }
+            set {
+                this["LangName"] = value;
+            }
+        }
     }
 }

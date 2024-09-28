@@ -61,7 +61,25 @@ namespace LeanMagagement.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tên Người Dùng.
+        ///   Looks up a localized string similar to Position.
+        /// </summary>
+        public static string ChucVu {
+            get {
+                return ResourceManager.GetString("ChucVu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language.
+        /// </summary>
+        public static string NgonNgu {
+            get {
+                return ResourceManager.GetString("NgonNgu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username.
         /// </summary>
         public static string TenNguoiDung {
             get {
