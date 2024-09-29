@@ -70,6 +70,24 @@ namespace LeanMagagement.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Address.
+        /// </summary>
+        public static string DiaChi {
+            get {
+                return ResourceManager.GetString("DiaChi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dateofbirth.
+        /// </summary>
+        public static string NgaySinh {
+            get {
+                return ResourceManager.GetString("NgaySinh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Language.
         /// </summary>
         public static string NgonNgu {

@@ -123,4 +123,10 @@
   <data name="NgonNgu" xml:space="preserve">
     <value>Language</value>
   </data>
+  <data name="NgaySinh" xml:space="preserve">
+    <value>Dateofbirth</value>
+  </data>
+  <data name="DiaChi" xml:space="preserve">
+    <value>Address</value>
+  </data>
 </root>

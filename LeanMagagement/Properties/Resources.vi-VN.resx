@@ -126,4 +126,10 @@
   <data name="NgonNgu" xml:space="preserve">
     <value>Ngôn ngữ</value>
   </data>
+  <data name="NgaySinh" xml:space="preserve">
+    <value>Ngày sinh</value>
+  </data>
+  <data name="DiaChi" xml:space="preserve">
+    <value>Địa chỉ</value>
+  </data>
 </root>
