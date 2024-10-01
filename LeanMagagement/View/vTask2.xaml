@@ -7,9 +7,9 @@
     xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
     xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"
     xmlns:local="clr-namespace:LeanMagagement.View"
-    xmlns:p="clr-namespace:LeanMagagement.Properties"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:p="clr-namespace:LeanMagagement.Properties"
     xmlns:vm="clr-namespace:LeanMagagement.ViewModel"
     Title="vTask2"
     d:Height="1080"
@@ -71,9 +71,15 @@
 
                             <MenuItem Header="Cài đặt">
                                 <MenuItem Header="{x:Static p:Resources.NgonNgu}">
-                                    <MenuItem Header="Tiếng Việt"/>
-                                    <MenuItem Header="English"/>
-                                    
+                                    <MenuItem
+                                        Command="{Binding Cmd_SetLanguage}"
+                                        CommandParameter="vi-VN"
+                                        Header="Tiếng Việt" />
+                                    <MenuItem
+                                        Command="{Binding Cmd_SetLanguage}"
+                                        CommandParameter="en"
+                                        Header="English" />
+
                                 </MenuItem>
                             </MenuItem>
                             <Separator />
@@ -142,12 +148,11 @@
                         <Grid>
                             <TextBlock
                                 Margin="5"
+                                d:Text="Tên cửa sổ"
                                 FontSize="15"
                                 Foreground="White"
-                                d:Text="Tên cửa sổ" 
-                                Text="{Binding PopUpFrameContent.Title}"/>
+                                Text="{Binding PopUpFrameContent.Title}" />
                             <Button
-                                
                                 Margin="5"
                                 HorizontalAlignment="Right"
                                 VerticalAlignment="Center"
@@ -157,8 +162,8 @@
                                         <md:PackIcon
                                             Width="22"
                                             Height="22"
-                                            Kind="CloseCircle"
-                                            Background="{StaticResource SColor_00}">
+                                            Background="{StaticResource SColor_00}"
+                                            Kind="CloseCircle">
                                             <md:PackIcon.Style>
                                                 <Style TargetType="md:PackIcon">
                                                     <Setter Property="Foreground" Value="White" />

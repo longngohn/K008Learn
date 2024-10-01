@@ -6,7 +6,9 @@ using LeanMagagement.View.Pages.PopUp;
 using Microsoft.Xaml.Behaviors.Core;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
@@ -116,5 +118,29 @@ namespace LeanMagagement.ViewModel
             IsPopUp = false;
         }
 
+        private ActionCommand cmd_SetLanguage;
+
+        public ICommand Cmd_SetLanguage
+        {
+            get
+            {
+                if (cmd_SetLanguage == null)
+                {
+                    cmd_SetLanguage = new ActionCommand(PerformCmd_SetLanguage);
+                }
+
+                return cmd_SetLanguage;
+            }
+        }
+
+        private void PerformCmd_SetLanguage(object parameter)
+        {
+            Properties.Settings.Default.LangName = (parameter as string);
+            Properties.Settings.Default.Save();
+
+            Process.Start(Assembly.GetExecutingAssembly().Location);
+            Environment.Exit(0);
+
+        }
     }
 }

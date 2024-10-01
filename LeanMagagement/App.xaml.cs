@@ -16,13 +16,20 @@ namespace LeanMagagement
     /// </summary>
     public partial class App : Application
     {
-        public static CultureInfo culture = new CultureInfo("vn-VI");
+        public static CultureInfo cul = new CultureInfo(LeanMagagement.Properties.Settings.Default.LangName);
+
+        public static string UserId = "CB097C69-980B-4F0D-9A2A-4770D4BB51BC";
+        
         protected override void OnStartup(StartupEventArgs e)
         {
             ApplicationThemeHelper.ApplicationThemeName = Theme.Win11LightName;
             base.OnStartup(e);
-            Thread.CurrentThread.CurrentCulture = culture;
-            Thread.CurrentThread.CurrentUICulture = culture;
+            Thread.CurrentThread.CurrentCulture = cul;
+            Thread.CurrentThread.CurrentUICulture = cul;
+
+            CultureInfo.DefaultThreadCurrentCulture = cul;
+            CultureInfo.DefaultThreadCurrentUICulture = cul;
+
         }
     }
 }

@@ -6,10 +6,23 @@
       xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
       xmlns:p ="clr-namespace:LeanMagagement.Properties"
       xmlns:local="clr-namespace:LeanMagagement.View.Pages.PopUp"
+      xmlns:vm ="clr-namespace:LeanMagagement.ViewModel.Pages" 
+      xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Thông tin tài khoản"
          dx:ThemeManager.ThemeName="Win11Light">
+
+    <Page.DataContext>
+        <vm:vmpAccInfo/>
+    </Page.DataContext>
+
+    <b:Interaction.Triggers>
+        <b:EventTrigger EventName="Loaded">
+            <b:InvokeCommandAction Command="{Binding Cmd_LoadAll}"/>
+        </b:EventTrigger>
+
+    </b:Interaction.Triggers>
 
     <Border CornerRadius="20" Background="Purple" Height="350" Width="300">
         <StackPanel Margin="10">
@@ -19,47 +32,52 @@
             </Border>
             <Grid Margin="0,5,0,5">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="75"></ColumnDefinition>
+                    <ColumnDefinition Width="85"></ColumnDefinition>
                     <ColumnDefinition Width="1*"></ColumnDefinition>
 
                 </Grid.ColumnDefinitions>
                 <TextBlock Foreground="White" VerticalAlignment="Center" Margin="0,0,10,0" 
                            Text="{x:Static p:Resources.TenNguoiDung}"/>
-                <TextBox Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+                <TextBox Text="{Binding User.UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
             </Grid>
             <Grid  Margin="0,5,0,5">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="75"></ColumnDefinition>
+                    <ColumnDefinition Width="85"></ColumnDefinition>
                     <ColumnDefinition Width="1*"></ColumnDefinition>
 
                 </Grid.ColumnDefinitions>
                 <TextBlock Foreground="White" VerticalAlignment="Center" Margin="0,0,10,0" 
                             Text="Email"/>
-                <TextBox Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+                <TextBox Text="{Binding User.Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
             </Grid>
            
             <Grid  Margin="0,5,0,5">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="75"></ColumnDefinition>
+                    <ColumnDefinition Width="85"></ColumnDefinition>
                     <ColumnDefinition Width="1*"></ColumnDefinition>
 
                 </Grid.ColumnDefinitions>
                 <TextBlock Foreground="White" VerticalAlignment="Center" Margin="0,0,10,0" 
                 Text="{x:Static p:Resources.NgaySinh}"/>
-                <TextBox Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+                <TextBox Text="{Binding User.DateOfBirth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
             </Grid>
             <Grid  Margin="0,5,0,5">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="75"></ColumnDefinition>
+                    <ColumnDefinition Width="85"></ColumnDefinition>
                     <ColumnDefinition Width="1*"></ColumnDefinition>
 
                 </Grid.ColumnDefinitions>
                 <TextBlock Foreground="White" VerticalAlignment="Center" Margin="0,0,10,0" 
                 Text="{x:Static p:Resources.DiaChi}"/>
-                <TextBox Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
+                <TextBox Text="{Binding User.Address, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch"></TextBox>
             </Grid>
             <Grid  Margin="0,5,0,5">
-                <Button Content="Cập nhật" Width="100"></Button>
+                <Button Content="Cập nhật" Width="100"
+                        Command="{Binding Cmd_UpdateData}"></Button>
             </Grid>
 
         </StackPanel>
