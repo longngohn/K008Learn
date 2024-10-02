@@ -117,7 +117,6 @@ namespace LeanMagagement.ViewModel.Pages
             }
             catch (Exception)
             {
-
                 throw;
             }
             

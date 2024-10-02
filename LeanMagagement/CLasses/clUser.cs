@@ -43,7 +43,13 @@ namespace LeanMagagement.CLasses
             set { _Address = value; OnPropertyChanged(); }
         }
 
-         
+        private byte[] _Photo;
+
+        public byte[] Photo
+        {
+            get { return _Photo; }
+            set { _Photo = value; }
+        }
 
     }
 }

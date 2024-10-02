@@ -51,7 +51,7 @@ namespace LeanMagagement.ViewModel.Pages
 
             }
 
-            MessageBox.Show("Tải dữ liệu");
+            
         }
 
         private ActionCommand cmd_UpdateData;

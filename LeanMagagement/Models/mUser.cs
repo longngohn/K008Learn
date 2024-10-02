@@ -71,8 +71,10 @@ namespace LeanMagagement.Models
                     cmd.Parameters.AddWithValue("Email", user.Email);
                     cmd.Parameters.AddWithValue("DateOfBirth", user.DateOfBirth);
                     cmd.Parameters.AddWithValue("Address", user.Address);
+                    cmd.Parameters.AddWithValue("Address", user.Photo);
 
-                    cmd.CommandText = "UPDATE    UserInfo Set [Email]=@Email, [UserName]= @UserName, [DateOfBirth]=@DateOfBirth, [Address] =@Address WHERE [Id]=@id";
+
+                    cmd.CommandText = "UPDATE    UserInfo Set [Email]=@Email, [UserName]= @UserName, [DateOfBirth]=@DateOfBirth, [Address] =@Address, [Photo] = @Photo WHERE [Id]=@id";
                     var kq = await cmd.ExecuteNonQueryAsync();
                     if (kq > 0)
                     {
