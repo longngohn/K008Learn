@@ -24,7 +24,7 @@ namespace LeanMagagement.ViewModel.Pages
         public ObservableRangeCollection<clTask> TaskList
         {
             get { return _taskList; }
-            set { _taskList = value; }
+            set { _taskList = value; OnPropertyChanged(); }
         }
 
         private ActionCommand cmd_OpenPage;

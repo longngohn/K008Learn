@@ -48,7 +48,7 @@ namespace LeanMagagement.CLasses
         public byte[] Photo
         {
             get { return _Photo; }
-            set { _Photo = value; }
+            set { _Photo = value; OnPropertyChanged(); }
         }
 
     }

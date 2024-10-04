@@ -396,6 +396,7 @@
     <Compile Include="ViewModel\Pages\vmpAccInfo.cs" />
     <Compile Include="ViewModel\Pages\vmpAddTask.cs" />
     <Compile Include="ViewModel\Pages\vmpGiaoViec.cs" />
+    <Compile Include="ViewModel\Pages\vmpUser.cs" />
     <Compile Include="ViewModel\vmTaoGiaoViec.cs" />
     <Compile Include="ViewModel\vmGiaoViec2.cs" />
     <Compile Include="View\Pages\pGiaoViec.xaml.cs">

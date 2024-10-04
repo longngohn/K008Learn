@@ -66,15 +66,15 @@ namespace LeanMagagement.Models
                 conn.Open();
                 using (var cmd = conn.CreateCommand())
                 {
-                    cmd.Parameters.AddWithValue("id", user.Id);
+                    cmd.Parameters.AddWithValue("Id", user.Id);
                     cmd.Parameters.AddWithValue("UserName", user.UserName);
                     cmd.Parameters.AddWithValue("Email", user.Email);
                     cmd.Parameters.AddWithValue("DateOfBirth", user.DateOfBirth);
                     cmd.Parameters.AddWithValue("Address", user.Address);
-                    cmd.Parameters.AddWithValue("Address", user.Photo);
+                    cmd.Parameters.AddWithValue("Photo", user.Photo);
 
 
-                    cmd.CommandText = "UPDATE    UserInfo Set [Email]=@Email, [UserName]= @UserName, [DateOfBirth]=@DateOfBirth, [Address] =@Address, [Photo] = @Photo WHERE [Id]=@id";
+                    cmd.CommandText = "UPDATE UserInfo Set [Email]=@Email, [UserName]= @UserName, [DateOfBirth]=@DateOfBirth, [Address]=@Address, [Photo]=@Photo WHERE [Id]=@Id";
                     var kq = await cmd.ExecuteNonQueryAsync();
                     if (kq > 0)
                     {

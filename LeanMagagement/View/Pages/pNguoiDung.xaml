@@ -1,16 +1,104 @@
-﻿<Page x:Class="LeanMagagement.View.Pages.pNguoiDung"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:LeanMagagement.View.Pages"
-      mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="Người dùng">
+﻿<Page
+    x:Class="LeanMagagement.View.Pages.pNguoiDung"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+    xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+    xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
+    xmlns:local="clr-namespace:LeanMagagement.View.Pages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:LeanMagagement.ViewModel.Pages"
+    Title="pNguoiDung"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    dx:ThemeManager.ThemeName="Win11Light"
+    mc:Ignorable="d">
+    <Page.DataContext>
+        <vm:vmpUser />
+    </Page.DataContext>
+    <dx:LoadingDecorator>
+        <Grid>
+            <!--<TextBlock Text="Giao việc" FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center"
+            Foreground="Black"></TextBlock>-->
 
-    <Grid Background= "DarkSalmon" >
-        <TextBlock Text="Người dùng" FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center"
-                Foreground="White"></TextBlock>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="1*" />
 
-    </Grid>
+            </Grid.RowDefinitions>
+            <dxr:RibbonControl
+                RibbonHeaderVisibility="Collapsed"
+                ShowApplicationButton="False"
+                ToolbarShowMode="Hide">
+                <dxr:RibbonDefaultPageCategory>
+                    <dxr:RibbonPage>
+                        <dxr:RibbonPageGroup>
+                            <dxb:BarButtonItem
+                                Command="{Binding Cmd_ReloadData}"
+                                Content="Tải dữ liệu"
+                                Glyph="{dx:DXImage SvgImages/XAF/Action_Refresh.svg}"
+                                LargeGlyph="{dx:DXImage SvgImages/XAF/Action_Refresh.svg}" />
+                            <dxb:BarButtonItem
+                                Command="{Binding Cmd_OpenPage}"
+                                CommandParameter="pAddTask"
+                                Content="Thêm thành viên"
+                                Glyph="{dx:DXImage 'SvgImages/Icon Builder/Actions_AddCircled.svg'}"
+                                LargeGlyph="{dx:DXImage 'SvgImages/Icon Builder/Actions_AddCircled.svg'}" />
+                            <dxb:BarButtonItem
+                                Content="Xóa thành viên"
+                                Glyph="{dx:DXImage 'SvgImages/Icon Builder/Actions_DeleteCircled.svg'}"
+                                LargeGlyph="{dx:DXImage 'SvgImages/Icon Builder/Actions_DeleteCircled.svg'}" />
+                        </dxr:RibbonPageGroup>
+                        <dxr:RibbonPageGroup>
+                            <dxb:BarButtonItem
+                                Command="{Binding Cmd_SaveData}"
+                                Content="Lưu dữ liệu"
+                                Glyph="{dx:DXImage 'SvgImages/XAF/Action_SaveScript.svg'}"
+                                LargeGlyph="{dx:DXImage 'SvgImages/XAF/Action_SaveScript.svg'}" />
+                        </dxr:RibbonPageGroup>
+                    </dxr:RibbonPage>
+                </dxr:RibbonDefaultPageCategory>
+            </dxr:RibbonControl>
+            <Grid Grid.Row="1">
+                <dxg:GridControl
+                    EnableSmartColumnsGeneration="True"
+                    SelectionMode="Row">
+                    <dxg:GridControl.View>
+                        <dxg:TableView
+                            AutoWidth="True"
+                            SearchPanelHorizontalAlignment="Stretch"
+                            SearchPanelPosition="OverGroupPanel"
+                            ShowGroupPanel="False"
+                            ShowSearchPanelMode="Always" />
+                    </dxg:GridControl.View>
+                    <dxg:GridControl.Columns>
+                        <dxg:GridColumn
+                            Width="Auto"
+                            FieldName="Photo"
+                            IsSmart="True" />
+                        <dxg:GridColumn
+                            Width="Auto"
+                            FieldName="UserName"
+                            IsSmart="True" />
+                        <dxg:GridColumn
+                            Width="Auto"
+                            FieldName="Email"
+                            IsSmart="True" />
+                        <dxg:GridColumn
+                            Width="Auto"
+                            FieldName="DateOfBirth"
+                            IsSmart="True" />
+                        <dxg:GridColumn
+                            Width="Auto"
+                            FieldName="Address"
+                            IsSmart="True" />
+                    </dxg:GridControl.Columns>
+                </dxg:GridControl>
+            </Grid>
+        </Grid>
+    </dx:LoadingDecorator>
+
 </Page>
