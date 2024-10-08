@@ -10,7 +10,7 @@
     xmlns:dxr="http://schemas.devexpress.com/winfx/2008/xaml/ribbon"
     xmlns:local="clr-namespace:LeanMagagement.View.Pages"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:vm="clr-namespace:LeanMagagement.ViewModel.Pages"
+    xmlns:vm="clr-namespace:LeanMagagement.ViewModel.Pages" xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
     Title="pNguoiDung"
     d:DesignHeight="450"
     d:DesignWidth="800"
@@ -19,6 +19,12 @@
     <Page.DataContext>
         <vm:vmpUser />
     </Page.DataContext>
+    <b:Interaction.Triggers>
+        <b:EventTrigger EventName="Loaded">
+            <b:InvokeCommandAction Command="{Binding Cmd_LoadAll}" />
+        </b:EventTrigger>
+    </b:Interaction.Triggers>
+
     <dx:LoadingDecorator>
         <Grid>
             <!--<TextBlock Text="Giao việc" FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center"
@@ -42,13 +48,13 @@
                                 Glyph="{dx:DXImage SvgImages/XAF/Action_Refresh.svg}"
                                 LargeGlyph="{dx:DXImage SvgImages/XAF/Action_Refresh.svg}" />
                             <dxb:BarButtonItem
-                                Command="{Binding Cmd_OpenPage}"
+                                Command="{Binding Cmd_Popup}"
                                 CommandParameter="pAddTask"
-                                Content="Thêm thành viên"
+                                Content="Thêm người dùng"
                                 Glyph="{dx:DXImage 'SvgImages/Icon Builder/Actions_AddCircled.svg'}"
                                 LargeGlyph="{dx:DXImage 'SvgImages/Icon Builder/Actions_AddCircled.svg'}" />
                             <dxb:BarButtonItem
-                                Content="Xóa thành viên"
+                                Content="Xóa người dùng"
                                 Glyph="{dx:DXImage 'SvgImages/Icon Builder/Actions_DeleteCircled.svg'}"
                                 LargeGlyph="{dx:DXImage 'SvgImages/Icon Builder/Actions_DeleteCircled.svg'}" />
                         </dxr:RibbonPageGroup>

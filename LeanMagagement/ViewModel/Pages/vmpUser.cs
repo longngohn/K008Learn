@@ -1,6 +1,8 @@
 ﻿using LeanMagagement.CLasses;
 using LeanMagagement.Libs;
 using LeanMagagement.Models;
+using LeanMagagement.View.Pages.PopUp;
+using LeanMagagement.View.Pages;
 using Microsoft.Xaml.Behaviors.Core;
 using System;
 using System.Collections.Generic;
@@ -43,6 +45,45 @@ namespace LeanMagagement.ViewModel.Pages
                 UserList.Clear();
                 var uList = await mSQLServer.GetAllUsers();
                 UserList.AddRange(uList);
+            }
+            catch
+            {
+
+            }
+        }
+
+        private ActionCommand cmd_Popup;
+
+        public ICommand Cmd_Popup
+        {
+            get
+            {
+                if (cmd_Popup == null)
+                {
+                    cmd_Popup = new ActionCommand(PerformCmd_Popup);
+                }
+
+                return cmd_Popup;
+            }
+        }
+
+        private void PerformCmd_Popup(object parameter)
+        {
+            string ActionName = parameter as String;
+            var vmMain = App.Current.MainWindow.DataContext as vmGiaoViec2;
+            try
+            {
+                switch (ActionName)
+                {
+                   
+                    case "pThongTinTaiKhoan":
+                        vmMain.PopUpFrameContent = new pThongTinTaiKhoan();
+                        vmMain.IsPopUp = true;
+                        break;
+
+                    default:
+                        break;
+                }
             }
             catch
             {
