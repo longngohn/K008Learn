@@ -1,10 +1,13 @@
 ﻿using LeanMagagement.CLasses;
 using LeanMagagement.Libs;
+using LeanMagagement.Models;
+using Microsoft.Xaml.Behaviors.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace LeanMagagement.ViewModel.Pages
 {
@@ -18,7 +21,33 @@ namespace LeanMagagement.ViewModel.Pages
             set { _userList = value; OnPropertyChanged(); }
         }
 
+        private ActionCommand cmd_LoadAll;
 
+        public ICommand Cmd_LoadAll
+        {
+            get
+            {
+                if (cmd_LoadAll == null)
+                {
+                    cmd_LoadAll = new ActionCommand(PerformCmd_LoadAll);
+                }
 
+                return cmd_LoadAll;
+            }
+        }
+
+        private async void PerformCmd_LoadAll()
+        {
+            try
+            {
+                UserList.Clear();
+                var uList = await mSQLServer.GetAllUsers();
+                UserList.AddRange(uList);
+            }
+            catch
+            {
+
+            }
+        }
     }
 }

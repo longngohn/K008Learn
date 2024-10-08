@@ -37,7 +37,7 @@
                     <dxr:RibbonPage>
                         <dxr:RibbonPageGroup>
                             <dxb:BarButtonItem
-                                Command="{Binding Cmd_ReloadData}"
+                                Command="{Binding Cmd_LoadAll}"
                                 Content="Tải dữ liệu"
                                 Glyph="{dx:DXImage SvgImages/XAF/Action_Refresh.svg}"
                                 LargeGlyph="{dx:DXImage SvgImages/XAF/Action_Refresh.svg}" />
@@ -65,6 +65,7 @@
             <Grid Grid.Row="1">
                 <dxg:GridControl
                     EnableSmartColumnsGeneration="True"
+                    ItemsSource ="{Binding UserList}"
                     SelectionMode="Row">
                     <dxg:GridControl.View>
                         <dxg:TableView

@@ -1,4 +1,5 @@
-﻿using DevExpress.Xpf.Core;
+﻿using DevExpress.Data.Entity;
+using DevExpress.Xpf.Core;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -19,6 +20,8 @@ namespace LeanMagagement
         public static CultureInfo cul = new CultureInfo(LeanMagagement.Properties.Settings.Default.LangName);
 
         public static string UserId = "CB097C69-980B-4F0D-9A2A-4770D4BB51BC";
+
+        public static string connectString = "Server=LAPTOP-B6PRDD12\\FERP;Database=iTask;Trusted_Connection=True;MultipleActiveResultSets=true;";
         
         protected override void OnStartup(StartupEventArgs e)
         {
