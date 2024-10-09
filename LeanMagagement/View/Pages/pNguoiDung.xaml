@@ -49,7 +49,7 @@
                                 LargeGlyph="{dx:DXImage SvgImages/XAF/Action_Refresh.svg}" />
                             <dxb:BarButtonItem
                                 Command="{Binding Cmd_Popup}"
-                                CommandParameter="pAddTask"
+                                CommandParameter="pUserInfo"
                                 Content="Thêm người dùng"
                                 Glyph="{dx:DXImage 'SvgImages/Icon Builder/Actions_AddCircled.svg'}"
                                 LargeGlyph="{dx:DXImage 'SvgImages/Icon Builder/Actions_AddCircled.svg'}" />

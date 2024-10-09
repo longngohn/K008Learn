@@ -76,8 +76,8 @@ namespace LeanMagagement.ViewModel.Pages
                 switch (ActionName)
                 {
                    
-                    case "pThongTinTaiKhoan":
-                        vmMain.PopUpFrameContent = new pThongTinTaiKhoan();
+                    case "pUserInfo":
+                        vmMain.PopUpFrameContent = new pUserInfo();
                         vmMain.IsPopUp = true;
                         break;
 
