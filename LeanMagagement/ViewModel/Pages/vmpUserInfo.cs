@@ -89,7 +89,17 @@ namespace LeanMagagement.ViewModel.Pages
                     (App.Current.MainWindow.DataContext as vmGiaoViec2).IsPopUp = false;
                     (App.Current.MainWindow.DataContext as vmGiaoViec2).PopUpFrameContent = null;
 
-                    MessageBox.Show("Cập nhật thông tin thành công!");
+                    MessageBox.Show("Thêm người dùng thành công!");
+                    //try
+                    //{
+                    //    UserList.Clear();
+                    //    var uList = await mSQLServer.GetAllUsers();
+                    //    UserList.AddRange(uList);
+                    //}
+                    //catch
+                    //{
+
+                    //}
                 }
 
             }

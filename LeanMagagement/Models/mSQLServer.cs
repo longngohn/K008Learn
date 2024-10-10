@@ -9,6 +9,7 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using static DevExpress.XtraEditors.Mask.MaskSettings;
 
 namespace LeanMagagement.Models
@@ -75,28 +76,30 @@ namespace LeanMagagement.Models
                     {
                         using (var cmd = conn.CreateCommand())
                         {
+                            cmd.Transaction = trans;
                             try
                             {
-                                cmd.Parameters.AddWithValue("Id", user.Id);
-                                cmd.Parameters.AddWithValue("UserName", user.UserName);
-                                cmd.Parameters.AddWithValue("Email", user.Email);
-                                cmd.Parameters.AddWithValue("DateOfBirth", user.DateOfBirth);
-                                cmd.Parameters.AddWithValue("Address", user.Address);
-                                cmd.Parameters.AddWithValue("Photo", user.Photo);
+                                cmd.Parameters.AddWithValue("@Id", Guid.NewGuid().ToString());
+                                cmd.Parameters.AddWithValue("@UserName", user.UserName ?? (Object)DBNull.Value);
+                                cmd.Parameters.AddWithValue("@Email", user.Email ?? (Object)DBNull.Value);
+                                cmd.Parameters.AddWithValue("@DateOfBirth", user.DateOfBirth);
+                                cmd.Parameters.AddWithValue("@Address", user.Address ?? (Object)DBNull.Value);
+                                cmd.Parameters.AddWithValue("@Photo", user.Photo ?? (Object)DBNull.Value);
 
-                                cmd.CommandText = "INSERT INTO ([Users] ([Id],[UserName],[Email],[DateOfBirth], [Address], [Photo]) VALUE (@Id, @UserName, @Email, @DateOfBirth, @Address, @Photo)";
+                                cmd.CommandText = "INSERT INTO [Users] ([Id],[UserName],[Email],[DateOfBirth], [Address], [Photo]) VALUES (@Id, @UserName, @Email, @DateOfBirth, @Address, @Photo)";
                                 var kq = await cmd.ExecuteNonQueryAsync();
                                 if (kq > 0)
                                 {
+
                                     res = true;
                                 }
 
                                 trans.Commit();
 
                             }
-                            catch (Exception)
+                            catch (Exception ex)
                             {
-
+                                MessageBox.Show(ex.ToString());
                                 trans.Rollback();
                             }
                             
