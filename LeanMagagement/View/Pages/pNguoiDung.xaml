@@ -73,7 +73,8 @@
                 <dxg:GridControl
                     EnableSmartColumnsGeneration="True"
                     ItemsSource="{Binding UserList}"
-                    SelectionMode="Row">
+                    SelectionMode="Row"
+                    CurrentItem="{Binding UserItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     <dxg:GridControl.View>
                         <dxg:TableView
                             AllowEditing="False"
@@ -81,7 +82,8 @@
                             SearchPanelHorizontalAlignment="Stretch"
                             SearchPanelPosition="OverGroupPanel"
                             ShowGroupPanel="False"
-                            ShowSearchPanelMode="Always" >
+                            ShowSearchPanelMode="Always" 
+                            >
                             <b:Interaction.Triggers>
                                 <b:EventTrigger EventName="MouseDoubleClick">
                                     <b:InvokeCommandAction Command="{Binding Cmd_Popup}" 
@@ -92,10 +94,20 @@
                         
                     </dxg:GridControl.View>
                     <dxg:GridControl.Columns>
-                        <dxg:GridColumn
+                        <dxg:GridColumn 
                             Width="Auto"
                             FieldName="Photo"
-                            IsSmart="True" />
+                            IsSmart="True" >
+                            <dxg:GridColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border Width="40" Height="40" CornerRadius="20">
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="{Binding Row.Photo, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Stretch="UniformToFill"/>
+                                        </Border.Background>
+                                    </Border>
+                                </DataTemplate>
+                            </dxg:GridColumn.CellTemplate>
+                        </dxg:GridColumn>
                         <dxg:GridColumn
                             Width="Auto"
                             FieldName="UserName"

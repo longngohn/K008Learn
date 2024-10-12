@@ -23,7 +23,7 @@ namespace LeanMagagement.Models
             var kq = await GetAllUsers();
             Console.WriteLine(kq.Count);
         }
-        public static string connectionString = "Server=DT-CMT163\\FERP;Database=iTask;Trusted_Connection=True;MultipleActiveResultSets=true;";
+        public static string connectionString = "Server=LAPTOP-B6PRDD12\\FERP;Database=iTask;Trusted_Connection=True;MultipleActiveResultSets=true;";
 
         public static async Task<List<clUser>> GetAllUsers()
         {
@@ -86,7 +86,7 @@ namespace LeanMagagement.Models
                                 cmd.Parameters.AddWithValue("@Address", user.Address ?? (Object)DBNull.Value);
                                 cmd.Parameters.AddWithValue("@Photo", user.Photo ?? (Object)DBNull.Value);
 
-                                cmd.CommandText = "INSERT INTO [Users] ([Id],[UserName],[Email],[DateOfBirth], [Address], [Photo]) VALUES (@Id, @UserName, @Email, @DateOfBirth, @Address, @Photo)";
+                                cmd.CommandText = "INSERT INTO [Users] ([Id],[UserName],[Email],[DateOfBirth], [Address], [Photo]) VALUES (@Id, @UserName, @Email, @DateOfBirth, @Address, CONVERT(varbinary(max), @Photo))";
                                 var kq = await cmd.ExecuteNonQueryAsync();
                                 if (kq > 0)
                                 {
@@ -114,6 +114,64 @@ namespace LeanMagagement.Models
                 throw;
             } 
            
+
+            return res;
+        }
+
+
+        public static async Task<bool> UpdateUser(clUser user)
+        {
+
+            var res = false;
+
+            try
+            {
+                using (var conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    using (var trans = conn.BeginTransaction())
+                    {
+                        using (var cmd = conn.CreateCommand())
+                        {
+                            cmd.Transaction = trans;
+                            try
+                            {
+                                cmd.Parameters.AddWithValue("@Id", user.Id);
+                                cmd.Parameters.AddWithValue("@UserName", user.UserName ?? (Object)DBNull.Value);
+                                cmd.Parameters.AddWithValue("@Email", user.Email ?? (Object)DBNull.Value);
+                                cmd.Parameters.AddWithValue("@DateOfBirth", user.DateOfBirth);
+                                cmd.Parameters.AddWithValue("@Address", user.Address ?? (Object)DBNull.Value);
+                                cmd.Parameters.AddWithValue("@Photo", user.Photo ?? (Object)DBNull.Value);
+
+                                cmd.CommandText = "UPDATE [Users] SET [UserName]=@UserName,[Email]=@Email,[DateOfBirth]=@DateOfBirth, [Address]=@Address, [Photo]=CONVERT(varbinary(max), @Photo) WHERE [ID]=@Id";
+                                var kq = await cmd.ExecuteNonQueryAsync();
+                                if (kq > 0)
+                                {
+
+                                    res = true;
+                                }
+
+                                trans.Commit();
+
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.ToString());
+                                trans.Rollback();
+                            }
+
+                        }
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
 
             return res;
         }

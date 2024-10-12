@@ -1,4 +1,6 @@
-﻿using LeanMagagement.CLasses;
+﻿using DevExpress.Data.Browsing;
+using DevExpress.Office.Import.OpenXml;
+using LeanMagagement.CLasses;
 using LeanMagagement.Libs;
 using LeanMagagement.Models;
 using Microsoft.Win32;
@@ -83,24 +85,42 @@ namespace LeanMagagement.ViewModel.Pages
         {
             try
             {
-                var IsSuccess = await mSQLServer.AddUser(this.User);
-                if (IsSuccess == true)
+                bool IsSuccess = false;
+                if (this.User.Id != null)
                 {
-                    (App.Current.MainWindow.DataContext as vmGiaoViec2).IsPopUp = false;
-                    (App.Current.MainWindow.DataContext as vmGiaoViec2).PopUpFrameContent = null;
+                   
+                    IsSuccess = await mSQLServer.UpdateUser(this.User);
+                    if (IsSuccess == true)
+                    {
+                        var vMn = App.Current.MainWindow.DataContext as vmGiaoViec2;
+                        vMn.IsPopUp = false;
+                        vMn.PopUpFrameContent = null;
 
-                    MessageBox.Show("Thêm người dùng thành công!");
-                    //try
-                    //{
-                    //    UserList.Clear();
-                    //    var uList = await mSQLServer.GetAllUsers();
-                    //    UserList.AddRange(uList);
-                    //}
-                    //catch
-                    //{
+                        MessageBox.Show("Cập nhật thông tin người dùng thành công!");
+                        (vMn.MainFrameContent.DataContext as vmpUser).PerformCmd_LoadAll();
 
-                    //}
+                    }
+
                 }
+                else
+                {
+                    IsSuccess = await mSQLServer.AddUser(this.User);
+                    if (IsSuccess == true)
+                    {
+                        var vMn = App.Current.MainWindow.DataContext as vmGiaoViec2;
+                        vMn.IsPopUp = false;
+                        vMn.PopUpFrameContent = null;
+
+                        MessageBox.Show("Thêm người dùng thành công!");
+                        (vMn.MainFrameContent.DataContext as vmpUser).PerformCmd_LoadAll();
+
+                        //(vMn.MainFrameContent.DataContext as vmpUser).Cmd_LoadAll.Execute(null);
+
+
+                    }
+                }
+               
+
 
             }
             catch (Exception ex)

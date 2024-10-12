@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using LeanMagagement.Objects;
 
 namespace LeanMagagement.ViewModel.Pages
 {
@@ -22,6 +23,15 @@ namespace LeanMagagement.ViewModel.Pages
             get { return _userList; }
             set { _userList = value; OnPropertyChanged(); }
         }
+
+        private clUser _UserItem = new clUser();
+
+        public clUser UserItem
+        {
+            get { return _UserItem; }
+            set { _UserItem = value; OnPropertyChanged(); }
+        }
+
 
         private ActionCommand cmd_LoadAll;
 
@@ -38,7 +48,7 @@ namespace LeanMagagement.ViewModel.Pages
             }
         }
 
-        private async void PerformCmd_LoadAll()
+        public async void PerformCmd_LoadAll()
         {
             try
             {
@@ -78,14 +88,14 @@ namespace LeanMagagement.ViewModel.Pages
                    
                     case "pAddUser":
                         vmMain.PopUpFrameContent = new pUserInfo();
-
                         (vmMain.PopUpFrameContent.DataContext as vmpUserInfo).User = new clUser();
-
                         vmMain.IsPopUp = true;
                         break;
 
                     case "pEditUser":
                         vmMain.PopUpFrameContent = new pUserInfo();
+                        (vmMain.PopUpFrameContent.DataContext as vmpUserInfo).User = UserItem.ShallowCopy();
+
                         vmMain.IsPopUp = true;
                         break;
 

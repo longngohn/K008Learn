@@ -127,7 +127,7 @@ mc:Ignorable="d">
                 Grid.Column="1"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Center"
-                MaskType="DateOnly"
+                MaskType="DateOnly"               
                 Text="{Binding User.DateOfBirth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
             </Grid>
