@@ -16,7 +16,7 @@ namespace LeanMagagement.ViewModel.Pages
 {
     public class vmpUserInfo : PropertyChangedBase
     {
-        private clUser _User = new clUser();
+        private clUser _User;
 
         public clUser User
         {

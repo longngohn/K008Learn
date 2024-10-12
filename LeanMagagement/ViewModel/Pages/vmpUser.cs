@@ -76,7 +76,15 @@ namespace LeanMagagement.ViewModel.Pages
                 switch (ActionName)
                 {
                    
-                    case "pUserInfo":
+                    case "pAddUser":
+                        vmMain.PopUpFrameContent = new pUserInfo();
+
+                        (vmMain.PopUpFrameContent.DataContext as vmpUserInfo).User = new clUser();
+
+                        vmMain.IsPopUp = true;
+                        break;
+
+                    case "pEditUser":
                         vmMain.PopUpFrameContent = new pUserInfo();
                         vmMain.IsPopUp = true;
                         break;

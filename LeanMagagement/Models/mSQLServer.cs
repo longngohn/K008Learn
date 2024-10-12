@@ -23,7 +23,7 @@ namespace LeanMagagement.Models
             var kq = await GetAllUsers();
             Console.WriteLine(kq.Count);
         }
-        public static string connectionString = "Server=LAPTOP-B6PRDD12\\FERP;Database=iTask;Trusted_Connection=True;MultipleActiveResultSets=true;";
+        public static string connectionString = "Server=DT-CMT163\\FERP;Database=iTask;Trusted_Connection=True;MultipleActiveResultSets=true;";
 
         public static async Task<List<clUser>> GetAllUsers()
         {
