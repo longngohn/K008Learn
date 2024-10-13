@@ -485,6 +485,7 @@
     <Compile Include="Libs\DataBaseConnection.cs" />
     <Compile Include="Libs\ObservableRangeCollection.cs" />
     <Compile Include="Libs\PropertyChangedBase.cs" />
+    <Compile Include="Models\mEF.cs" />
     <Compile Include="Models\mSQLServer.cs" />
     <Compile Include="Models\mUser.cs" />
     <Compile Include="Objects\Copy.cs" />

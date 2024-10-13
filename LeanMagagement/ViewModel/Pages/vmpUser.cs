@@ -24,6 +24,14 @@ namespace LeanMagagement.ViewModel.Pages
             set { _userList = value; OnPropertyChanged(); }
         }
 
+        private ObservableRangeCollection<clUser> _userSelect = new ObservableRangeCollection<clUser>();
+
+        public ObservableRangeCollection<clUser> UserSelect
+        {
+            get { return _userSelect; }
+            set { _userSelect = value; OnPropertyChanged(); }
+        }
+
         private clUser _UserItem = new clUser();
 
         public clUser UserItem
@@ -53,7 +61,7 @@ namespace LeanMagagement.ViewModel.Pages
             try
             {
                 UserList.Clear();
-                var uList = await mSQLServer.GetAllUsers();
+                var uList = await mEF.GetAllUsers();
                 UserList.AddRange(uList);
             }
             catch
@@ -106,6 +114,35 @@ namespace LeanMagagement.ViewModel.Pages
             catch
             {
 
+            }
+        }
+
+        private ActionCommand cmd_Delete;
+
+        public ICommand Cmd_Delete
+        {
+            get
+            {
+                if (cmd_Delete == null)
+                {
+                    cmd_Delete = new ActionCommand(PerformCmd_Delete);
+                }
+
+                return cmd_Delete;
+            }
+        }
+
+        private void PerformCmd_Delete()
+        {
+            try
+            {
+                var kq = mEF.DeleteUser(UserSelect.ToList());
+                PerformCmd_LoadAll();
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }

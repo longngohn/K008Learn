@@ -55,6 +55,8 @@
                                 Glyph="{dx:DXImage 'SvgImages/Icon Builder/Actions_AddCircled.svg'}"
                                 LargeGlyph="{dx:DXImage 'SvgImages/Icon Builder/Actions_AddCircled.svg'}" />
                             <dxb:BarButtonItem
+                                Command="{Binding Cmd_Delete}"
+                                
                                 Content="Xóa người dùng"
                                 Glyph="{dx:DXImage 'SvgImages/Icon Builder/Actions_DeleteCircled.svg'}"
                                 LargeGlyph="{dx:DXImage 'SvgImages/Icon Builder/Actions_DeleteCircled.svg'}" />
@@ -71,38 +73,64 @@
             </dxr:RibbonControl>
             <Grid Grid.Row="1">
                 <dxg:GridControl
+                    CurrentItem="{Binding UserItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                     EnableSmartColumnsGeneration="True"
                     ItemsSource="{Binding UserList}"
-                    SelectionMode="Row"
-                    CurrentItem="{Binding UserItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    SelectedItems="{Binding UserSelect, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    SelectionMode="Row">
+
+                    <dxg:GridControl.TotalSummary>
+                        <dxg:GridSummaryItem SummaryType="Count"
+                                             Alignment="Left">
+                            <dxg:GridSummaryItem.FixedTotalSummaryElementStyle>
+                                <Style TargetType="Run">
+                                    <Setter Property="Text">
+                                        <Setter.Value>
+                                            <MultiBinding Mode="OneWay"
+                                                          StringFormat="Đang chọn {0}/{1} (Tổng: {2})">
+                                                <Binding RelativeSource="{RelativeSource AncestorType=dxg:GridControl}" Path="SelectedItems.Count"/>
+                                                <Binding Path="Value"/>
+                                                <Binding RelativeSource="{RelativeSource AncestorType=dxg:GridControl}" Path="ItemsSource.Count"/>
+                                            </MultiBinding>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </dxg:GridSummaryItem.FixedTotalSummaryElementStyle>
+                        </dxg:GridSummaryItem>
+                    </dxg:GridControl.TotalSummary>
                     <dxg:GridControl.View>
                         <dxg:TableView
                             AllowEditing="False"
                             AutoWidth="True"
+                            NewItemRowPosition="None"
                             SearchPanelHorizontalAlignment="Stretch"
                             SearchPanelPosition="OverGroupPanel"
+                            ShowCheckBoxSelectorColumn="True"
                             ShowGroupPanel="False"
-                            ShowSearchPanelMode="Always" 
+                            ShowSearchPanelMode="Always"
+                            ShowFixedTotalSummary="True"
                             >
                             <b:Interaction.Triggers>
                                 <b:EventTrigger EventName="MouseDoubleClick">
-                                    <b:InvokeCommandAction Command="{Binding Cmd_Popup}" 
-                                                           CommandParameter="pEditUser"/>
+                                    <b:InvokeCommandAction Command="{Binding Cmd_Popup}" CommandParameter="pEditUser" />
                                 </b:EventTrigger>
                             </b:Interaction.Triggers>
                         </dxg:TableView>
-                        
+
                     </dxg:GridControl.View>
                     <dxg:GridControl.Columns>
-                        <dxg:GridColumn 
+                        <dxg:GridColumn
                             Width="Auto"
                             FieldName="Photo"
-                            IsSmart="True" >
+                            IsSmart="True">
                             <dxg:GridColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Border Width="40" Height="40" CornerRadius="20">
+                                    <Border
+                                        Width="40"
+                                        Height="40"
+                                        CornerRadius="20">
                                         <Border.Background>
-                                            <ImageBrush ImageSource="{Binding Row.Photo, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Stretch="UniformToFill"/>
+                                            <ImageBrush ImageSource="{Binding Row.Photo, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Stretch="UniformToFill" />
                                         </Border.Background>
                                     </Border>
                                 </DataTemplate>
