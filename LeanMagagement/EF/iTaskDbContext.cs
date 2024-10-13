@@ -14,8 +14,7 @@ namespace LeanMagagement.EF
         public DbSet<clUser> Users { get; set; }
         public iTaskDbContext(DbContextOptions<iTaskDbContext> options) : base(options) 
         { 
-        
-
+       
 
         }
 

@@ -90,17 +90,16 @@ namespace LeanMagagement.ViewModel.Pages
                 {
                    
                     IsSuccess = await mEF.UpdateUser(this.User);
+
                     if (IsSuccess == true)
                     {
                         var vMn = App.Current.MainWindow.DataContext as vmGiaoViec2;
                         vMn.IsPopUp = false;
                         vMn.PopUpFrameContent = null;
-
                         MessageBox.Show("Cập nhật thông tin người dùng thành công!");
-                        (vMn.MainFrameContent.DataContext as vmpUser).PerformCmd_LoadAll();
+                        (vMn.MainFrameContent.DataContext as vmpUser).Cmd_LoadAll.Execute(null);
 
                     }
-
                 }
                 else
                 {
@@ -110,16 +109,14 @@ namespace LeanMagagement.ViewModel.Pages
                         var vMn = App.Current.MainWindow.DataContext as vmGiaoViec2;
                         vMn.IsPopUp = false;
                         vMn.PopUpFrameContent = null;
-
                         MessageBox.Show("Thêm người dùng thành công!");
-                        (vMn.MainFrameContent.DataContext as vmpUser).PerformCmd_LoadAll();
-
-                        //(vMn.MainFrameContent.DataContext as vmpUser).Cmd_LoadAll.Execute(null);
-
+                        (vMn.MainFrameContent.DataContext as vmpUser).Cmd_LoadAll.Execute(null);
 
                     }
                 }
-               
+
+                
+
 
 
             }

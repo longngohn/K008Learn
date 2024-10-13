@@ -21,7 +21,7 @@ namespace LeanMagagement
 
         public static string UserId = "CB097C69-980B-4F0D-9A2A-4770D4BB51BC";
 
-        public static string connectString = "Server=LAPTOP-B6PRDD12\\FERP;Database=iTask;Trusted_Connection=True;MultipleActiveResultSets=true;";
+        public static string connectString { get; set; } = "Server=LAPTOP-B6PRDD12\\FERP;Database=iTask;Trusted_Connection=True;MultipleActiveResultSets=true;";
         
         protected override void OnStartup(StartupEventArgs e)
         {

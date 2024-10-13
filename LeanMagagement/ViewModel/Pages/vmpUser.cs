@@ -56,7 +56,7 @@ namespace LeanMagagement.ViewModel.Pages
             }
         }
 
-        public async void PerformCmd_LoadAll()
+        private async void PerformCmd_LoadAll()
         {
             try
             {
