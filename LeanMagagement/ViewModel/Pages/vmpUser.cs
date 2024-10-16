@@ -11,6 +11,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using LeanMagagement.Objects;
+using LeanMagagement.EF;
+using System.Windows;
+using DevExpress.Xpf.Core;
 
 namespace LeanMagagement.ViewModel.Pages
 {
@@ -61,7 +64,7 @@ namespace LeanMagagement.ViewModel.Pages
             try
             {
                 UserList.Clear();
-                var uList = await mEF.GetAllUsers();
+                var uList = await mEF.GetAllUsers(App.dbContext);
                 UserList.AddRange(uList);
             }
             catch
@@ -107,6 +110,13 @@ namespace LeanMagagement.ViewModel.Pages
                         vmMain.IsPopUp = true;
                         break;
 
+                    case "pImportExcel":
+                        vmMain.PopUpFrameContent = new pUserInfo();
+                        (vmMain.PopUpFrameContent.DataContext as vmpUserInfo).User = UserItem.ShallowCopy();
+
+                        vmMain.IsPopUp = true;
+                        break;
+
                     default:
                         break;
                 }
@@ -136,8 +146,15 @@ namespace LeanMagagement.ViewModel.Pages
         {
             try
             {
-                var kq = mEF.DeleteUser(UserSelect.ToList());
-                PerformCmd_LoadAll();
+                //var kqTB = MessageBox.Show($"Bạn có muốn xóa {UserSelect.Count()} người dùng không?", "Cảnh báo xóa", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+                var kqTB = ThemedMessageBox.Show("Cảnh báo xóa", $"Bạn có muốn xóa {UserSelect.Count()} người dùng không?", MessageBoxButton.YesNo);
+                if(kqTB == MessageBoxResult.Yes)
+                {
+                    var kq = mEF.DeleteUser(UserSelect.ToList(), App.dbContext);
+                    PerformCmd_LoadAll();
+                }
+               
             }
             catch (Exception)
             {

@@ -1,5 +1,7 @@
 ﻿using DevExpress.Data.Entity;
 using DevExpress.Xpf.Core;
+using LeanMagagement.EF;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -22,7 +24,9 @@ namespace LeanMagagement
         public static string UserId = "CB097C69-980B-4F0D-9A2A-4770D4BB51BC";
 
         public static string connectString { get; set; } = "Server=LAPTOP-B6PRDD12\\FERP;Database=iTask;Trusted_Connection=True;MultipleActiveResultSets=true;";
-        
+
+        public static DbContextOptionsBuilder<iTaskDbContext> op = new DbContextOptionsBuilder<iTaskDbContext>();
+        public static iTaskDbContext dbContext;
         protected override void OnStartup(StartupEventArgs e)
         {
             ApplicationThemeHelper.ApplicationThemeName = Theme.Win11LightName;
@@ -32,6 +36,9 @@ namespace LeanMagagement
 
             CultureInfo.DefaultThreadCurrentCulture = cul;
             CultureInfo.DefaultThreadCurrentUICulture = cul;
+
+            op.UseSqlServer(App.connectString);
+            dbContext = new iTaskDbContext(op.Options);
 
         }
     }

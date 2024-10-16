@@ -54,14 +54,19 @@
                                 Content="Thêm người dùng"
                                 Glyph="{dx:DXImage 'SvgImages/Icon Builder/Actions_AddCircled.svg'}"
                                 LargeGlyph="{dx:DXImage 'SvgImages/Icon Builder/Actions_AddCircled.svg'}" />
+
+                            <dxb:BarButtonItem
+                                Command="{Binding Cmd_Popup}"
+                                 CommandParameter="pImportExcel"
+                                Content="Import Excel"
+                                Glyph="{dx:DXImage 'SvgImages/Outlook Inspired/LowImportance.svg'}" />
                             <dxb:BarButtonItem
                                 Command="{Binding Cmd_Delete}"
-                                
                                 Content="Xóa người dùng"
-                                Glyph="{dx:DXImage 'SvgImages/Icon Builder/Actions_DeleteCircled.svg'}"
-                                LargeGlyph="{dx:DXImage 'SvgImages/Icon Builder/Actions_DeleteCircled.svg'}" />
+                                Glyph="{dx:DXImage 'SvgImages/Icon Builder/Actions_DeleteCircled.svg'}" />
+                            
                         </dxr:RibbonPageGroup>
-                       
+
                     </dxr:RibbonPage>
                 </dxr:RibbonDefaultPageCategory>
             </dxr:RibbonControl>
@@ -74,17 +79,15 @@
                     SelectionMode="Row">
 
                     <dxg:GridControl.TotalSummary>
-                        <dxg:GridSummaryItem SummaryType="Count"
-                                             Alignment="Left">
+                        <dxg:GridSummaryItem Alignment="Left" SummaryType="Count">
                             <dxg:GridSummaryItem.FixedTotalSummaryElementStyle>
                                 <Style TargetType="Run">
                                     <Setter Property="Text">
                                         <Setter.Value>
-                                            <MultiBinding Mode="OneWay"
-                                                          StringFormat="Đang chọn {0}/{1} (Tổng: {2})">
-                                                <Binding RelativeSource="{RelativeSource AncestorType=dxg:GridControl}" Path="SelectedItems.Count"/>
-                                                <Binding Path="Value"/>
-                                                <Binding RelativeSource="{RelativeSource AncestorType=dxg:GridControl}" Path="ItemsSource.Count"/>
+                                            <MultiBinding Mode="OneWay" StringFormat="Đang chọn {0}/{1} (Tổng: {2})">
+                                                <Binding Path="SelectedItems.Count" RelativeSource="{RelativeSource AncestorType=dxg:GridControl}" />
+                                                <Binding Path="Value" />
+                                                <Binding Path="ItemsSource.Count" RelativeSource="{RelativeSource AncestorType=dxg:GridControl}" />
                                             </MultiBinding>
                                         </Setter.Value>
                                     </Setter>
@@ -100,10 +103,9 @@
                             SearchPanelHorizontalAlignment="Stretch"
                             SearchPanelPosition="OverGroupPanel"
                             ShowCheckBoxSelectorColumn="True"
-                            ShowGroupPanel="False"
-                            ShowSearchPanelMode="Always"
                             ShowFixedTotalSummary="True"
-                            >
+                            ShowGroupPanel="False"
+                            ShowSearchPanelMode="Always">
                             <b:Interaction.Triggers>
                                 <b:EventTrigger EventName="MouseDoubleClick">
                                     <b:InvokeCommandAction Command="{Binding Cmd_Popup}" CommandParameter="pEditUser" />

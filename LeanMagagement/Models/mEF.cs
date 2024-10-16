@@ -17,7 +17,7 @@ namespace LeanMagagement.Models
         /// Lấy danh sách thông tin người dùng
         /// </summary>
         /// <returns></returns>
-        public static async Task<List<clUser>> GetAllUsers()
+        public static async Task<List<clUser>> GetAllUsers(iTaskDbContext dbContext)
         {
             List<clUser> uList = null;
 
@@ -26,7 +26,7 @@ namespace LeanMagagement.Models
                 
                 var op = new DbContextOptionsBuilder<iTaskDbContext>();
                 op.UseSqlServer(App.connectString);
-                iTaskDbContext dbContext = new iTaskDbContext(op.Options);
+                dbContext = new iTaskDbContext(op.Options);
                 if (dbContext.Database.CanConnect())
                 {
                     uList = await dbContext.Users.AsNoTracking().ToListAsync();
@@ -49,16 +49,14 @@ namespace LeanMagagement.Models
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public static async Task<bool> AddUser(clUser user)
+        public static async Task<bool> AddUser(clUser user, iTaskDbContext dbContext)
         {
 
             var res = false;
 
             try
             {
-                var op = new DbContextOptionsBuilder<iTaskDbContext>();
-                op.UseSqlServer(App.connectString);
-                iTaskDbContext dbContext = new iTaskDbContext(op.Options);
+               
                 if (dbContext.Database.CanConnect())
                 {
                     
@@ -90,7 +88,7 @@ namespace LeanMagagement.Models
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public static async Task<bool> UpdateUser(clUser user)
+        public static async Task<bool> UpdateUser(clUser user, iTaskDbContext dbContext)
         {
 
             var res = false;
@@ -98,9 +96,7 @@ namespace LeanMagagement.Models
 
             try
             {
-                var op = new DbContextOptionsBuilder<iTaskDbContext>();
-                op.UseSqlServer(App.connectString);
-                iTaskDbContext dbContext = new iTaskDbContext(op.Options);
+                
                 if (dbContext.Database.CanConnect())
                 {
                      
@@ -135,16 +131,14 @@ namespace LeanMagagement.Models
             return res;
         }
 
-        public static async Task<bool> DeleteUser(List<clUser> userList)
+        public static async Task<bool> DeleteUser(List<clUser> userList,  iTaskDbContext dbContext)
         {
 
             var res = false;
 
             try
             {
-                var op = new DbContextOptionsBuilder<iTaskDbContext>();
-                op.UseSqlServer(App.connectString);
-                iTaskDbContext dbContext = new iTaskDbContext(op.Options);
+                
                 if (dbContext.Database.CanConnect())
                 {
 

@@ -89,7 +89,7 @@ namespace LeanMagagement.ViewModel.Pages
                 if (this.User.Id != null)
                 {
                    
-                    IsSuccess = await mEF.UpdateUser(this.User);
+                    IsSuccess = await mEF.UpdateUser(this.User, App.dbContext);
 
                     if (IsSuccess == true)
                     {
@@ -103,7 +103,7 @@ namespace LeanMagagement.ViewModel.Pages
                 }
                 else
                 {
-                    IsSuccess = await mEF.AddUser(this.User);
+                    IsSuccess = await mEF.AddUser(this.User, App.dbContext);
                     if (IsSuccess == true)
                     {
                         var vMn = App.Current.MainWindow.DataContext as vmGiaoViec2;

@@ -492,6 +492,7 @@
     <Compile Include="ViewModel\Pages\vmpAccInfo.cs" />
     <Compile Include="ViewModel\Pages\vmpAddTask.cs" />
     <Compile Include="ViewModel\Pages\vmpGiaoViec.cs" />
+    <Compile Include="ViewModel\Pages\vmpImportExcel.cs" />
     <Compile Include="ViewModel\Pages\vmpUser.cs" />
     <Compile Include="ViewModel\Pages\vmpUserInfo.cs" />
     <Compile Include="ViewModel\vmTaoGiaoViec.cs" />
@@ -504,6 +505,9 @@
     </Compile>
     <Compile Include="View\Pages\PopUp\pAddTask.xaml.cs">
       <DependentUpon>pAddTask.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\PopUp\pImportExcel.xaml.cs">
+      <DependentUpon>pImportExcel.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\PopUp\pThongTinTaiKhoan.xaml.cs">
       <DependentUpon>pThongTinTaiKhoan.xaml</DependentUpon>
@@ -527,6 +531,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Pages\PopUp\pAddTask.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\PopUp\pImportExcel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
