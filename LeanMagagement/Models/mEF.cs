@@ -163,5 +163,48 @@ namespace LeanMagagement.Models
 
             return res;
         }
+
+
+        /// <summary>
+        ///  Thêm người dùng
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public static async Task<bool> ImportUsers(List<clUser> userList, iTaskDbContext dbContext)
+        {
+
+            var res = false;
+
+            try
+            {
+
+                if (dbContext.Database.CanConnect())
+                {
+                    foreach (var user in userList)
+                    {
+                        user.Id = Guid.NewGuid().ToString();
+                    }
+                    
+                    dbContext.Users.AddRange(userList);
+                    var kq = await dbContext.SaveChangesAsync();
+                    if (kq > 0)
+                    {
+                        res = true;
+                    }
+                }
+                else
+                {
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+            return res;
+        }
     }
 }

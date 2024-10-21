@@ -1,12 +1,16 @@
 ﻿
 using LeanMagagement.CLasses;
 using LeanMagagement.Libs;
+using LeanMagagement.Models;
 using Microsoft.Office.Interop.Excel;
 using Microsoft.Win32;
 using Microsoft.Xaml.Behaviors.Core;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
@@ -67,12 +71,13 @@ namespace LeanMagagement.ViewModel.Pages
                 if (dlg.ShowDialog() == true && File.Exists(dlg.FileName))
                 {
                     FilePath= dlg.FileName;
+                    ReadExcelFile(FilePath);
                 }
                
             }
             catch (Exception ex)
             {
-                throw ex;
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -83,24 +88,84 @@ namespace LeanMagagement.ViewModel.Pages
             ExcelApp.Visible = true;
 
             var wb= ExcelApp.Workbooks.Open(filePath);
-            Excel.Worksheet ws = wb.Sheets[0];
+            Worksheet ws = wb.Sheets["Sheet1"];
 
-            MessageBox.Show(ws.Range["A2"].Value);
+            
 
             long lr = (ws.Cells[ws.Rows.Count, 1] as Range).End[XlDirection.xlUp].Row;
 
             var tlist = new List<clUser>();
-            for (long i = 1; i <= lr; i++) {
+            for (long i = 2; i <= lr; i++) {
+
+                DateTime? dt = null;
+
+                try
+                {
+                    dt = ws.Range["C" + i].Value;
+                }
+                catch (Exception)
+                {
+
+                    try
+                    {
+                        dt = DateTime.ParseExact(ws.Range["C" + i].Value, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+                    }
+                    catch
+                    {
+
+                    }
+                }
                 var user = new clUser
                 {
                     UserName = ws.Range["A" + i].Value,
                     Email = ws.Range["B" + i].Value,
-                    Address = ws.Range["C" + i].Value,
-                    DateOfBirth = ws.Range["D" + i].Value, 
+                    Address = ws.Range["D" + i].Value,
+                    DateOfBirth = dt ,
                 };
                 tlist.Add(user);
             }
+
+            wb.Close();
+            wb = null;
             UserList.AddRange(tlist);
+        }
+
+        private ActionCommand cmd_Import;
+
+        public ICommand Cmd_Import
+        {
+            get
+            {
+                if (cmd_Import == null)
+                {
+                    cmd_Import = new ActionCommand(PerformCmd_ImportAsync);
+                }
+
+                return cmd_Import;
+            }
+        }
+
+        private async void PerformCmd_ImportAsync()
+        {
+            try
+            {
+
+                bool IsSuccess = false;
+
+                IsSuccess = await mEF.ImportUsers(UserList.ToList(), App.dbContext);
+
+                if (IsSuccess == true)
+                {
+                    var vMn = App.Current.MainWindow.DataContext as vmGiaoViec2;
+                    vMn.IsPopUp = false;
+                    vMn.PopUpFrameContent = null;
+                    MessageBox.Show("Cập nhật thông tin người dùng thành công!");
+                    (vMn.MainFrameContent.DataContext as vmpUser).Cmd_LoadAll.Execute(null);
+
+                }
+            }
+            catch (Exception ex) { }
+
         }
     }
 }

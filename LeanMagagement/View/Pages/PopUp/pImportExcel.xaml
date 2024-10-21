@@ -49,7 +49,19 @@
                     <md:PackIcon Foreground="Orange" Kind="TableImport" />
                 </MenuItem.Icon>
             </MenuItem>
-            <MenuItem Header="Run">
+            <MenuItem Header="Nhập"
+                       Command="{Binding Cmd_Import}"
+                      >
+                <MenuItem.Style>
+                    <Style TargetType="MenuItem">
+                        <Setter Property="IsEnabled" Value="True"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding FilePath, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" Value="{x:Null}">
+                                <Setter Property="IsEnabled" Value="False"></Setter>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </MenuItem.Style>
                 <MenuItem.Icon>
                     <md:PackIcon Foreground="Green" Kind="play" />
                 </MenuItem.Icon>
