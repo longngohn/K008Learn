@@ -164,7 +164,9 @@ namespace LeanMagagement.ViewModel.Pages
 
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
 
         }
     }
