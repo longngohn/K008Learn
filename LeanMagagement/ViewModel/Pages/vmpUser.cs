@@ -111,8 +111,7 @@ namespace LeanMagagement.ViewModel.Pages
                         break;
 
                     case "pImportExcel":
-                        vmMain.PopUpFrameContent = new pUserInfo();
-                        (vmMain.PopUpFrameContent.DataContext as vmpUserInfo).User = UserItem.ShallowCopy();
+                        vmMain.PopUpFrameContent = new pImportExcel();
 
                         vmMain.IsPopUp = true;
                         break;
