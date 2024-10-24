@@ -116,7 +116,7 @@
                     </dxg:GridControl.View>
                     <dxg:GridControl.Columns>
                         <dxg:GridColumn
-                            Width="auto"
+                            Width="40"
                             FieldName="Photo"
                             IsSmart="True">
                             <dxg:GridColumn.CellTemplate>
@@ -133,11 +133,11 @@
                             </dxg:GridColumn.CellTemplate>
                         </dxg:GridColumn>
                         <dxg:GridColumn
-                            Width="Auto"
+                           
                             FieldName="UserName"
                             IsSmart="True" />
                         <dxg:GridColumn
-                            Width="Auto"
+                            
                             FieldName="Email"
                             IsSmart="True" />
                         <dxg:GridColumn
@@ -145,7 +145,7 @@
                             FieldName="DateOfBirth"
                             IsSmart="True" />
                         <dxg:GridColumn
-                            Width="Auto"
+                            
                             FieldName="Address"
                             IsSmart="True" />
                     </dxg:GridControl.Columns>
