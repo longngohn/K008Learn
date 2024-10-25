@@ -81,26 +81,71 @@
                 HorizontalAlignment="Stretch" />
 
 
-            <dxg:GridControl Grid.Column="0" ItemsSource="{Binding TaskList}">
-                <dxg:GridControl.Columns>
-                    <dxg:GridColumn
-                        Width="Auto"
-                        FieldName="TenCongViec"
-                        IsSmart="True" />
-                    <dxg:GridColumn
-                        Width="Auto"
-                        FieldName="MoTa"
-                        IsSmart="True" />
-                    <dxg:GridColumn
-                        Width="Auto"
-                        FieldName="NguoiGiao"
-                        IsSmart="True" />
-                    <dxg:GridColumn
-                        Width="Auto"
-                        FieldName="NguoiNhan"
-                        IsSmart="True" />
-                </dxg:GridControl.Columns>
-            </dxg:GridControl>
+           
+            <dxg:GridControl Grid.Row="1"
+        CurrentItem="{Binding UserItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+        EnableSmartColumnsGeneration="True"
+        ItemsSource="{Binding UserList}"
+        SelectedItems="{Binding UserSelect, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+        SelectionMode="Row">
+
+                    <dxg:GridControl.TotalSummary>
+                        <dxg:GridSummaryItem Alignment="Left" SummaryType="Count">
+                            <dxg:GridSummaryItem.FixedTotalSummaryElementStyle>
+                                <Style TargetType="Run">
+                                    <Setter Property="Text">
+                                        <Setter.Value>
+                                            <MultiBinding Mode="OneWay" StringFormat="Đang chọn {0}/{1} (Tổng: {2})">
+                                                <Binding Path="SelectedItems.Count" RelativeSource="{RelativeSource AncestorType=dxg:GridControl}" />
+                                                <Binding Path="Value" />
+                                                <Binding Path="ItemsSource.Count" RelativeSource="{RelativeSource AncestorType=dxg:GridControl}" />
+                                            </MultiBinding>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </dxg:GridSummaryItem.FixedTotalSummaryElementStyle>
+                        </dxg:GridSummaryItem>
+                    </dxg:GridControl.TotalSummary>
+                    <dxg:GridControl.View>
+                        <dxg:TableView
+                AllowEditing="False"
+                AutoWidth="True"
+                NewItemRowPosition="None"
+                SearchPanelHorizontalAlignment="Stretch"
+                SearchPanelPosition="OverGroupPanel"
+                ShowCheckBoxSelectorColumn="True"
+                ShowFixedTotalSummary="True"
+                ShowGroupPanel="False"
+                ShowSearchPanelMode="Always">
+                            <b:Interaction.Triggers>
+                                <b:EventTrigger EventName="MouseDoubleClick">
+                                    <b:InvokeCommandAction Command="{Binding Cmd_Popup}" CommandParameter="pEditUser" />
+                                </b:EventTrigger>
+                            </b:Interaction.Triggers>
+                        </dxg:TableView>
+
+                    </dxg:GridControl.View>
+                    <dxg:GridControl.Columns>
+                        
+                        <dxg:GridColumn
+   
+                FieldName="UserName"
+                IsSmart="True" />
+                        <dxg:GridColumn
+                
+                FieldName="Email"
+                IsSmart="True" />
+                        <dxg:GridColumn
+                Width="Auto"
+                FieldName="DateOfBirth"
+                IsSmart="True" />
+                        <dxg:GridColumn
+                
+                FieldName="Address"
+                IsSmart="True" />
+                    </dxg:GridControl.Columns>
+                </dxg:GridControl>
+            
 
             <dxc:ChartControl Grid.Column="2">
                 <dxc:ChartControl.Legends>

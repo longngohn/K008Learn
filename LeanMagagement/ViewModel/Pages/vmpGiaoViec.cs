@@ -1,6 +1,7 @@
 ﻿using DevExpress.Pdf.Native;
 using LeanMagagement.CLasses;
 using LeanMagagement.Libs;
+using LeanMagagement.Models;
 using LeanMagagement.View.Pages.PopUp;
 using Microsoft.Xaml.Behaviors.Core;
 using Newtonsoft.Json;
@@ -19,13 +20,30 @@ namespace LeanMagagement.ViewModel.Pages
     {
 
 
-        private ObservableRangeCollection<clTask> _taskList = new ObservableRangeCollection<clTask>();
+        private ObservableRangeCollection<clTask> _taksList = new ObservableRangeCollection<clTask>();
 
         public ObservableRangeCollection<clTask> TaskList
         {
-            get { return _taskList; }
-            set { _taskList = value; OnPropertyChanged(); }
+            get { return _taksList; }
+            set { _taksList = value; OnPropertyChanged(); }
         }
+
+        private ObservableRangeCollection<clTask> _taskSelect = new ObservableRangeCollection<clTask>();
+
+        public ObservableRangeCollection<clTask> TaskSelect
+        {
+            get { return _taskSelect; }
+            set { _taskSelect = value; OnPropertyChanged(); }
+        }
+
+        private clTask _taskItem = new clTask();
+
+        public clTask TaskItem
+        {
+            get { return _taskItem; }
+            set { _taskItem = value; OnPropertyChanged(); }
+        }
+    
 
         private ActionCommand cmd_OpenPage;
 
@@ -105,15 +123,18 @@ namespace LeanMagagement.ViewModel.Pages
             }
         }
 
-        private void PerformCmd_ReloadData()
+        private async void PerformCmd_ReloadData()
         {
             try
             {
                 TaskList.Clear();
+      
+                var tList = await mEF.GetAllTask(App.dbContext);
+                TaskList.AddRange(tList);
 
                 //TaskList = JToken.Parse(Properties.Settings.Default.SaveData).ToObject<ObservableRangeCollection<clTask>>();
-                List<clTask> tList = JToken.Parse(Properties.Settings.Default.SaveData).ToObject<List<clTask>>();
-                TaskList.AddRange(tList);
+                //List<clTask> tList = JToken.Parse(Properties.Settings.Default.SaveData).ToObject<List<clTask>>();
+                //TaskList.AddRange(tList);
             }
             catch (Exception)
             {

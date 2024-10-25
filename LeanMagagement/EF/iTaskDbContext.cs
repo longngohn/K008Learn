@@ -12,6 +12,9 @@ namespace LeanMagagement.EF
     public class iTaskDbContext : DbContext
     {
         public DbSet<clUser> Users { get; set; }
+
+        public DbSet<clTask> Tasks { get; set; }
+
         public iTaskDbContext(DbContextOptions<iTaskDbContext> options) : base(options) 
         { 
        
@@ -29,6 +32,10 @@ namespace LeanMagagement.EF
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            modelBuilder.Entity<clTask>().HasOne(o => o.NguoiGiao).WithMany().HasForeignKey(o=>o.NguoiGiaoId);
+            modelBuilder.Entity<clTask>().HasOne(o => o.NguoiNhan).WithMany().HasForeignKey(o => o.NguoiNhanId);
+
             base.OnModelCreating(modelBuilder);
         }
     }

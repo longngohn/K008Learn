@@ -1,4 +1,5 @@
-﻿using LeanMagagement.CLasses;
+﻿using DevExpress.Xpf.Controls.Primitives;
+using LeanMagagement.CLasses;
 using LeanMagagement.EF;
 using LeanMagagement.Objects;
 using Microsoft.EntityFrameworkCore;
@@ -13,10 +14,7 @@ namespace LeanMagagement.Models
 {
     public class mEF
     { 
-        /// <summary>
-        /// Lấy danh sách thông tin người dùng
-        /// </summary>
-        /// <returns></returns>
+      
         public static async Task<List<clUser>> GetAllUsers(iTaskDbContext dbContext)
         {
             List<clUser> uList = null;
@@ -44,11 +42,7 @@ namespace LeanMagagement.Models
             }
             return uList;
         }
-        /// <summary>
-        ///  Thêm người dùng
-        /// </summary>
-        /// <param name="user"></param>
-        /// <returns></returns>
+       
         public static async Task<bool> AddUser(clUser user, iTaskDbContext dbContext)
         {
 
@@ -83,11 +77,7 @@ namespace LeanMagagement.Models
 
             return res;
         }
-        /// <summary>
-        /// Cập nhật thông tin người dùng
-        /// </summary>
-        /// <param name="user"></param>
-        /// <returns></returns>
+        
         public static async Task<bool> UpdateUser(clUser user, iTaskDbContext dbContext)
         {
 
@@ -165,11 +155,7 @@ namespace LeanMagagement.Models
         }
 
 
-        /// <summary>
-        ///  Thêm người dùng
-        /// </summary>
-        /// <param name="user"></param>
-        /// <returns></returns>
+        
         public static async Task<bool> ImportUsers(List<clUser> userList, iTaskDbContext dbContext)
         {
 
@@ -205,6 +191,35 @@ namespace LeanMagagement.Models
 
 
             return res;
+        }
+
+
+        public static async Task<List<clTask>> GetAllTask(iTaskDbContext dbContext)
+        {
+            List<clTask> tList = null;
+
+            try
+            {
+
+                var op = new DbContextOptionsBuilder<iTaskDbContext>();
+                op.UseSqlServer(App.connectString);
+                dbContext = new iTaskDbContext(op.Options);
+                if (dbContext.Database.CanConnect())
+                {
+                    tList = await dbContext.Tasks.AsNoTracking().ToListAsync();
+                }
+                else
+                {
+
+                }
+
+            }
+            catch (global::System.Exception)
+            {
+
+                throw;
+            }
+            return tList;
         }
     }
 }
