@@ -197,26 +197,22 @@ namespace LeanMagagement.Models
         public static async Task<List<clTask>> GetAllTask(iTaskDbContext dbContext)
         {
             List<clTask> tList = null;
-
             try
             {
-
                 var op = new DbContextOptionsBuilder<iTaskDbContext>();
                 op.UseSqlServer(App.connectString);
                 dbContext = new iTaskDbContext(op.Options);
                 if (dbContext.Database.CanConnect())
                 {
-                    tList = await dbContext.Tasks.AsNoTracking().ToListAsync();
+                    tList = await dbContext.Tasks.Include(o => o.NguoiGiao).Include(o => o.NguoiNhan).AsNoTracking().ToListAsync();
                 }
                 else
                 {
 
                 }
-
             }
             catch (global::System.Exception)
             {
-
                 throw;
             }
             return tList;

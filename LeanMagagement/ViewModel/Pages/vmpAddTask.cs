@@ -1,5 +1,6 @@
 ﻿using LeanMagagement.CLasses;
 using LeanMagagement.Libs;
+using LeanMagagement.Models;
 using Microsoft.Xaml.Behaviors.Core;
 using System;
 using System.Collections.Generic;
@@ -24,6 +25,14 @@ namespace LeanMagagement.ViewModel.Pages
             }
         }
 
+        private ObservableRangeCollection<clUser> _userList = new ObservableRangeCollection<clUser>();
+
+        public ObservableRangeCollection<clUser> UserList
+        {
+            get { return _userList; }
+            set { _userList = value; OnPropertyChanged(); }
+        }
+
         private ActionCommand cmd_AddTask;
 
         public ICommand Cmd_AddTask
@@ -45,6 +54,39 @@ namespace LeanMagagement.ViewModel.Pages
             var vmpGiaoViec = vmMain.MainFrameContent.DataContext as Pages.vmpGiaoViec;
             vmpGiaoViec.TaskList.Add(Task);
             vmMain.IsPopUp = false;
+        }
+
+        private ActionCommand cmd_LoadAll;
+
+        public ICommand Cmd_LoadAll
+        {
+            get
+            {
+                if (cmd_LoadAll == null)
+                {
+                    cmd_LoadAll = new ActionCommand(PerformCmd_LoadAll);
+                }
+
+                return cmd_LoadAll;
+            }
+        }
+
+        private async void PerformCmd_LoadAll()
+        {
+            try
+            {
+                UserList.Clear();
+
+                var uList = await mEF.GetAllUsers(App.dbContext);
+
+                UserList.AddRange(uList);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
     }
 }

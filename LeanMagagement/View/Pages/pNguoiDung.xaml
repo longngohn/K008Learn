@@ -25,16 +25,13 @@
             <b:InvokeCommandAction Command="{Binding Cmd_LoadAll}" />
         </b:EventTrigger>
     </b:Interaction.Triggers>
-
     <dx:LoadingDecorator>
         <Grid>
             <!--<TextBlock Text="Giao việc" FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center"
             Foreground="Black"></TextBlock>-->
-
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="1*" />
-
             </Grid.RowDefinitions>
             <dxr:RibbonControl
                 RibbonHeaderVisibility="Collapsed"

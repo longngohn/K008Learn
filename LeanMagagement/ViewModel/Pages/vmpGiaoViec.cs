@@ -73,6 +73,7 @@ namespace LeanMagagement.ViewModel.Pages
                     case "pAddTask":
 
                         vmMain.PopUpFrameContent = new pAddTask();
+                        (vmMain.PopUpFrameContent.DataContext as vmpAddTask).Task = new clTask();
                         vmMain.IsPopUp = true;
                         break; 
 
