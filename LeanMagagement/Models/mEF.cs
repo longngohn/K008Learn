@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace LeanMagagement.Models
 {
@@ -35,10 +36,10 @@ namespace LeanMagagement.Models
                 }
 
             }
-            catch (global::System.Exception)
+            catch (global::System.Exception ex)
             {
 
-                throw;
+              MessageBox.Show(ex.Message);
             }
             return uList;
         }

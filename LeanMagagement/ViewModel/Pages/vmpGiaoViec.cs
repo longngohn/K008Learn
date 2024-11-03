@@ -2,6 +2,7 @@
 using LeanMagagement.CLasses;
 using LeanMagagement.Libs;
 using LeanMagagement.Models;
+using LeanMagagement.Objects;
 using LeanMagagement.View.Pages.PopUp;
 using Microsoft.Xaml.Behaviors.Core;
 using Newtonsoft.Json;
@@ -63,20 +64,23 @@ namespace LeanMagagement.ViewModel.Pages
         private void PerformCmd_OpenPage(object parameter)
         {
             string ActionName = parameter as String;
-           
-
             try
             {
                 var vmMain = App.Current.MainWindow.DataContext as vmGiaoViec2;
                 switch (ActionName)
                 {
                     case "pAddTask":
-
                         vmMain.PopUpFrameContent = new pAddTask();
                         (vmMain.PopUpFrameContent.DataContext as vmpAddTask).Task = new clTask();
                         vmMain.IsPopUp = true;
-                        break; 
+                        break;
 
+                    case "pEditTask":
+                        vmMain.PopUpFrameContent = new pAddTask();
+                        (vmMain.PopUpFrameContent.DataContext as vmpAddTask).Task = TaskItem.ShallowCopy();
+                        vmMain.IsPopUp = true;
+                        
+                        break;
                     default:
                         break;
                 }

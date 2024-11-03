@@ -78,29 +78,45 @@ namespace LeanMagagement.CLasses
             set { _nguoiGiaoId = value; OnPropertyChanged(); }
         }
 
+        public string NguoiNhanId
+        {
+            get { return _nguoiNhanId; }
+            set
+            {
+                _nguoiNhanId = value;
+                OnPropertyChanged();
+            }
+        }
 
         private clUser _nguoiGiao;
 
 		public virtual clUser NguoiGiao
 		{
 			get { return _nguoiGiao; }
-			set { _nguoiGiao = value; OnPropertyChanged(); }
+			set { _nguoiGiao = value;
+                if (value != null)
+                {
+                    NguoiGiaoId = value.Id;
+                }
+                
+                OnPropertyChanged(); }
 		}
 
         private string _nguoiNhanId;
 
-        public string NguoiNhanId
-        {
-            get { return _nguoiNhanId; }
-            set { _nguoiNhanId = value; OnPropertyChanged(); }
-        }
+       
 
         private clUser _nguoiNhan;
 
 		public virtual clUser NguoiNhan
 		{
 			get { return _nguoiNhan; }
-			set { _nguoiNhan = value; OnPropertyChanged(); }
+			set { _nguoiNhan = value;
+                if (value != null)
+                {
+                    NguoiNhanId = value.Id;
+                }
+                OnPropertyChanged(); }
 		}
 
 

@@ -54,14 +54,14 @@
 
                             <dxb:BarButtonItem
                                 Command="{Binding Cmd_Popup}"
-                                 CommandParameter="pImportExcel"
+                                CommandParameter="pImportExcel"
                                 Content="Import Excel"
                                 Glyph="{dx:DXImage 'SvgImages/Outlook Inspired/LowImportance.svg'}" />
                             <dxb:BarButtonItem
                                 Command="{Binding Cmd_Delete}"
                                 Content="Xóa người dùng"
                                 Glyph="{dx:DXImage 'SvgImages/Icon Builder/Actions_DeleteCircled.svg'}" />
-                            
+
                         </dxr:RibbonPageGroup>
 
                     </dxr:RibbonPage>
@@ -129,22 +129,13 @@
                                 </DataTemplate>
                             </dxg:GridColumn.CellTemplate>
                         </dxg:GridColumn>
-                        <dxg:GridColumn
-                           
-                            FieldName="UserName"
-                            IsSmart="True" />
-                        <dxg:GridColumn
-                            
-                            FieldName="Email"
-                            IsSmart="True" />
+                        <dxg:GridColumn FieldName="UserName" IsSmart="True" />
+                        <dxg:GridColumn FieldName="Email" IsSmart="True" />
                         <dxg:GridColumn
                             Width="Auto"
                             FieldName="DateOfBirth"
                             IsSmart="True" />
-                        <dxg:GridColumn
-                            
-                            FieldName="Address"
-                            IsSmart="True" />
+                        <dxg:GridColumn FieldName="Address" IsSmart="True" />
                     </dxg:GridControl.Columns>
                 </dxg:GridControl>
             </Grid>

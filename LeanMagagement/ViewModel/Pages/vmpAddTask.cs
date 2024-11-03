@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
+using System.Windows.Forms;
 using System.Windows.Input;
 
 namespace LeanMagagement.ViewModel.Pages
@@ -79,14 +81,27 @@ namespace LeanMagagement.ViewModel.Pages
 
                 var uList = await mEF.GetAllUsers(App.dbContext);
 
+                if (Task.NguoiGiaoId != null)
+                {
+                    Task.NguoiGiao = uList.Where(o => o.Id == Task.NguoiGiaoId).FirstOrDefault();
+                    
+                }
+
+                if (Task.NguoiNhanId != null)
+                {
+                    Task.NguoiNhan = uList.Where(o => o.Id == Task.NguoiNhanId).FirstOrDefault();
+                }
+
                 UserList.AddRange(uList);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                MessageBox.Show(ex.Message);
             }
             
         }
+
+        
     }
 }
