@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace LeanMagagement.View
 {
     /// <summary>
-    /// Interaction logic for vTask2.xaml
+    /// Interaction logic for vMain.xaml
     /// </summary>
-    public partial class vTask2 : Window
+    public partial class vMain : Window
     {
-        public vTask2()
+        public vMain()
         {
             InitializeComponent();
         }

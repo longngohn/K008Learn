@@ -91,7 +91,7 @@ namespace LeanMagagement.ViewModel.Pages
         private void PerformCmd_Popup(object parameter)
         {
             string ActionName = parameter as String;
-            var vmMain = App.Current.MainWindow.DataContext as vmGiaoViec2;
+            var vmMain = App.Current.MainWindow.DataContext as vmMain;
             try
             {
                 switch (ActionName)

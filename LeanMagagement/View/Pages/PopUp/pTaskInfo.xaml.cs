@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LeanMagagement.CLasses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,13 +17,14 @@ using System.Windows.Shapes;
 namespace LeanMagagement.View.Pages.PopUp
 {
     /// <summary>
-    /// Interaction logic for pAddTask.xaml
+    /// Interaction logic for pTaskInfo.xaml
     /// </summary>
-    public partial class pAddTask : Page
+    public partial class pTaskInfo : Page
     {
-        public pAddTask()
+        public pTaskInfo()
         {
             InitializeComponent();
+            this.SttCb.ItemsSource = Enum.GetValues(typeof(TrangThai));
         }
     }
 }

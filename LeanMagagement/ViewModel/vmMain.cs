@@ -16,7 +16,7 @@ using System.Windows.Input;
 
 namespace LeanMagagement.ViewModel
 {
-    public class vmGiaoViec2 : PropertyChangedBase
+    public class vmMain : PropertyChangedBase
     {
         private Page _MainFrameContent;
         public Page MainFrameContent

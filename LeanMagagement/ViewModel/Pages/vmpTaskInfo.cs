@@ -13,7 +13,7 @@ using System.Windows.Input;
 
 namespace LeanMagagement.ViewModel.Pages
 {
-    public class vmpAddTask : PropertyChangedBase
+    public class vmpTaskInfo : PropertyChangedBase
     {
         private clTask _task = new clTask();
 
@@ -52,7 +52,7 @@ namespace LeanMagagement.ViewModel.Pages
 
         private void PerformCmd_AddTask()
         {
-            var vmMain = App.Current.MainWindow.DataContext as vmGiaoViec2;
+            var vmMain = App.Current.MainWindow.DataContext as vmMain;
             var vmpGiaoViec = vmMain.MainFrameContent.DataContext as Pages.vmpGiaoViec;
             vmpGiaoViec.TaskList.Add(Task);
             vmMain.IsPopUp = false;

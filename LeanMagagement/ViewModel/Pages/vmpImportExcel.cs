@@ -156,7 +156,7 @@ namespace LeanMagagement.ViewModel.Pages
 
                 if (IsSuccess == true)
                 {
-                    var vMn = App.Current.MainWindow.DataContext as vmGiaoViec2;
+                    var vMn = App.Current.MainWindow.DataContext as vmMain;
                     vMn.IsPopUp = false;
                     vMn.PopUpFrameContent = null;
                     MessageBox.Show("Cập nhật thông tin người dùng thành công!");

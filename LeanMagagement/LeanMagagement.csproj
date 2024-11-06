@@ -485,6 +485,7 @@
     </ApplicationDefinition>
     <Compile Include="CLasses\clTask.cs" />
     <Compile Include="CLasses\clUser.cs" />
+    <Compile Include="Converter\TrangThaiConverter.cs" />
     <Compile Include="EF\iTaskDbContext.cs" />
     <Compile Include="Libs\DataBaseConnection.cs" />
     <Compile Include="Libs\ObservableRangeCollection.cs" />
@@ -494,21 +495,21 @@
     <Compile Include="Models\mUser.cs" />
     <Compile Include="Objects\Copy.cs" />
     <Compile Include="ViewModel\Pages\vmpAccInfo.cs" />
-    <Compile Include="ViewModel\Pages\vmpAddTask.cs" />
+    <Compile Include="ViewModel\Pages\vmpTaskInfo.cs" />
     <Compile Include="ViewModel\Pages\vmpGiaoViec.cs" />
     <Compile Include="ViewModel\Pages\vmpImportExcel.cs" />
     <Compile Include="ViewModel\Pages\vmpUser.cs" />
     <Compile Include="ViewModel\Pages\vmpUserInfo.cs" />
     <Compile Include="ViewModel\vmTaoGiaoViec.cs" />
-    <Compile Include="ViewModel\vmGiaoViec2.cs" />
+    <Compile Include="ViewModel\vmMain.cs" />
     <Compile Include="View\Pages\pGiaoViec.xaml.cs">
       <DependentUpon>pGiaoViec.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\pNguoiDung.xaml.cs">
       <DependentUpon>pNguoiDung.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Pages\PopUp\pAddTask.xaml.cs">
-      <DependentUpon>pAddTask.xaml</DependentUpon>
+    <Compile Include="View\Pages\PopUp\pTaskInfo.xaml.cs">
+      <DependentUpon>pTaskInfo.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\PopUp\pImportExcel.xaml.cs">
       <DependentUpon>pImportExcel.xaml</DependentUpon>
@@ -519,8 +520,8 @@
     <Compile Include="View\Pages\PopUp\pUserInfo.xaml.cs">
       <DependentUpon>pUserInfo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\vTask2.xaml.cs">
-      <DependentUpon>vTask2.xaml</DependentUpon>
+    <Compile Include="View\vMain.xaml.cs">
+      <DependentUpon>vMain.xaml</DependentUpon>
     </Compile>
     <Page Include="PageResources.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -534,7 +535,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Pages\PopUp\pAddTask.xaml">
+    <Page Include="View\Pages\PopUp\pTaskInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -565,7 +566,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\vTask2.xaml">
+    <Page Include="View\vMain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -654,6 +655,7 @@
   <ItemGroup>
     <Resource Include="Photo\no avatar.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

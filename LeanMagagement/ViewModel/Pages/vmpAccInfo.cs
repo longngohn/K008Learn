@@ -78,7 +78,7 @@ namespace LeanMagagement.ViewModel.Pages
                 var kq = await mUser.UpdateUser(this.User);
                 if (kq == true)
                     {
-                    (App.Current.MainWindow.DataContext as vmGiaoViec2).IsPopUp = false;
+                    (App.Current.MainWindow.DataContext as vmMain).IsPopUp = false;
                     MessageBox.Show("Cập nhật thông tin thành công!");
                     }                    
                     

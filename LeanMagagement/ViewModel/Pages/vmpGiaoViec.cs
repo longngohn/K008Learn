@@ -1,4 +1,5 @@
-﻿using DevExpress.Pdf.Native;
+﻿using DevExpress.Mvvm.Native;
+using DevExpress.Pdf.Native;
 using LeanMagagement.CLasses;
 using LeanMagagement.Libs;
 using LeanMagagement.Models;
@@ -66,18 +67,18 @@ namespace LeanMagagement.ViewModel.Pages
             string ActionName = parameter as String;
             try
             {
-                var vmMain = App.Current.MainWindow.DataContext as vmGiaoViec2;
+                var vmMain = App.Current.MainWindow.DataContext as vmMain;
                 switch (ActionName)
                 {
                     case "pAddTask":
-                        vmMain.PopUpFrameContent = new pAddTask();
-                        (vmMain.PopUpFrameContent.DataContext as vmpAddTask).Task = new clTask();
+                        vmMain.PopUpFrameContent = new pTaskInfo();
+                        (vmMain.PopUpFrameContent.DataContext as vmpTaskInfo).Task = new clTask();
                         vmMain.IsPopUp = true;
                         break;
 
                     case "pEditTask":
-                        vmMain.PopUpFrameContent = new pAddTask();
-                        (vmMain.PopUpFrameContent.DataContext as vmpAddTask).Task = TaskItem.ShallowCopy();
+                        vmMain.PopUpFrameContent = new pTaskInfo();
+                        (vmMain.PopUpFrameContent.DataContext as vmpTaskInfo).Task = TaskItem.ShallowCopy();
                         vmMain.IsPopUp = true;
                         
                         break;
