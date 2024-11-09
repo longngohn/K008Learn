@@ -8,6 +8,10 @@
 
     <cvt:TrangThaiConverter x:Key="TrangThaiConverter" />
 
+    <cvt:TrangThaiColorConverter x:Key="TrangThaiColorConverter" />
+
+    <cvt:TrangThaiIconConverter x:Key="TrangThaiIconConverter" />
+
     <SolidColorBrush x:Key="MaterialDesign.Brush.Primary.Light" Color="{DynamicResource Color_00}" />
 
     <SolidColorBrush x:Key="MaterialDesign.Brush.Primary.Light.Foreground" Color="{DynamicResource Color_00}" />
